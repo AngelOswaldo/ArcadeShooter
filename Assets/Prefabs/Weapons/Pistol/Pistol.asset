@@ -16,5 +16,7 @@ MonoBehaviour:
   _Range: 50
   _FireRate: 0.8
   _ImpactForce: 30
+  _MaxAmmo: 12
+  _ReloadTime: 1
   _MuzzleFlash: {fileID: 8532954683091233240, guid: 9d84da7fb67c9794da95edfc87c77011,
     type: 3}
