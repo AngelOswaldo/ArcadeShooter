@@ -5,8 +5,28 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Enemy Stats", menuName = "Scriptable Objects/Enemy Stats", order = 52)]
 public class EnemyStats : ScriptableObject
 {
-    [SerializeField] private float _Health;
+    [Header("Enemy Stats", order = 10)]
+    [SerializeField] private int _MaxHealth;
+    [SerializeField] private float _HitDuration;
 
-    //public float Health { get { return _Health;  }
-    public float Health { get => _Health;}
+    [Header("Attack Stats")]
+    [SerializeField] private int _DamageAmount;
+    //[SerializeField] private float _AttackDuration;
+    [SerializeField] private float _SpeedAttack;
+
+    [Header("Movement Stats")]
+    [SerializeField] private float _MovementSpeed;
+    [SerializeField] private float _ChaseDistance;
+    [SerializeField] private float _RotationSpeed;
+
+    public int MaxHealth { get => _MaxHealth; }
+    public float HitDuration { get => _HitDuration; }
+
+    public int DamageAmount { get => _DamageAmount; }
+   //public float AttackDuration { get => _AttackDuration; }
+    public float SpeedAttack { get => _SpeedAttack; }
+
+    public float MovementSpeed { get => _MovementSpeed; }
+    public float ChaseDistance { get => _ChaseDistance; }
+    public float RotationSpeed { get => _RotationSpeed; }
 }

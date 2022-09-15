@@ -18,6 +18,9 @@ public class WeaponHandler : MonoBehaviour
     private float currentAmmo;
     private bool isReloading = false;
 
+    public LayerMask rayCollision;
+
+
     private void Start()
     {
         MuzzleFlash = Instantiate(weapon.MuzzleFlash, muzzleFlashPoint);
@@ -41,12 +44,18 @@ public class WeaponHandler : MonoBehaviour
             return;
         }
 
+    }
+
+    private void FixedUpdate()
+    {
+        if (isReloading)
+            return;
+
         if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
         {
             nextTimeToFire = Time.time + 1f / weapon.FireRate;
             Shoot();
         }
-        
     }
 
     private void Shoot()
@@ -56,9 +65,9 @@ public class WeaponHandler : MonoBehaviour
 
         currentAmmo--;
 
-        Debug.DrawRay(fpsCam.transform.position, fpsCam.transform.forward, Color.green);
+        //Debug.DrawRay(fpsCam.transform.position, fpsCam.transform.forward, Color.green);
         RaycastHit hit;
-        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, weapon.Range))
+        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, weapon.Range, rayCollision))
         {
             Debug.Log(hit.transform.name);
 
@@ -68,10 +77,10 @@ public class WeaponHandler : MonoBehaviour
                 target.TakeDamage(weapon.Damage);
             }
 
-            if(hit.rigidbody != null)
-            {
-                hit.rigidbody.AddForce(-hit.normal * weapon.ImpactForce);
-            }
+            //if(hit.rigidbody != null)
+            //{
+            //    hit.rigidbody.AddForce(-hit.normal * weapon.ImpactForce);
+            //}
 
             if(impactEffect != null)
             {

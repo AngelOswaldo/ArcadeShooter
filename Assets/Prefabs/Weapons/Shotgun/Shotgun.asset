@@ -12,11 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bb32dac4222ea84eaa760d844b84279, type: 3}
   m_Name: Shotgun
   m_EditorClassIdentifier: 
-  _Damage: 10
-  _Range: 20
-  _FireRate: 5
-  _ImpactForce: 30
+  _Damage: 50
+  _Range: 50
+  _FireRate: 2
+  _ImpactForce: 10
   _MaxAmmo: 10
   _ReloadTime: 2
-  _MuzzleFlash: {fileID: 8019250030887390074, guid: bba08245b623eaf48a7ce7d7c000cbf2,
-    type: 3}
+  _MuzzleFlash: {fileID: 8019250030887390074, guid: bba08245b623eaf48a7ce7d7c000cbf2, type: 3}

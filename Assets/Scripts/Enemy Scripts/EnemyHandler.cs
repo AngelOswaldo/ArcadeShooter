@@ -4,20 +4,38 @@ using UnityEngine;
 
 public class EnemyHandler : MonoBehaviour
 {
-    [SerializeField] private EnemyStats enemy;
+    public EnemyStats stats;
+    private EnemyIA enemyIA;
 
-    private float health;
-
+    [SerializeField] private int actualHealth;
+    
+    public GameObject drop;
+    private bool isDropSpawned = false;
     private void Start()
     {
-        health = enemy.Health;
+        enemyIA = GetComponent<EnemyIA>();
+        actualHealth = stats.MaxHealth;
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(int damage)
     {
-        health -= damage;
-        if(health <= 0)
-            Destroy(gameObject);
+        if(actualHealth < damage)
+        {
+            actualHealth = 0;
+            GameManager.instance.actualEnemies.Remove(this);
+            enemyIA.DeathState();
+        }
+        else
+        {
+            actualHealth-=damage;
+            StartCoroutine(enemyIA.HittedState());
+        }
+
+        if(actualHealth == 0 && !isDropSpawned)
+        {
+            Instantiate(drop,transform.position, Quaternion.identity);
+            isDropSpawned = true;
+        }
+
     }
-    
 }

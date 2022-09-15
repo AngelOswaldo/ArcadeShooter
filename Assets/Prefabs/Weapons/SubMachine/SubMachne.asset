@@ -12,11 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bb32dac4222ea84eaa760d844b84279, type: 3}
   m_Name: SubMachne
   m_EditorClassIdentifier: 
-  _Damage: 10
-  _Range: 50
-  _FireRate: 15
-  _ImpactForce: 30
-  _MaxAmmo: 45
-  _ReloadTime: 1.2
-  _MuzzleFlash: {fileID: 8019250030887390074, guid: d9c2294601c07d5498b5d9da157669a7,
-    type: 3}
+  _Damage: 12
+  _Range: 80
+  _FireRate: 10
+  _ImpactForce: 10
+  _MaxAmmo: 60
+  _ReloadTime: 1.5
+  _MuzzleFlash: {fileID: 8019250030887390074, guid: d9c2294601c07d5498b5d9da157669a7, type: 3}
