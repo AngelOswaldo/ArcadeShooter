@@ -3796,7 +3796,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1122164655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7467,7 +7467,7 @@ MonoBehaviour:
   - {fileID: 3123218168954551198}
   - {fileID: 3123218168762904095}
   shufflePoints: []
-  waitTime: 5
+  waitTime: 2
   playerInside: 1
   damage: 1
 --- !u!135 &282452531631571665
@@ -7859,7 +7859,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &776388090092825990
 MonoBehaviour:
   m_ObjectHideFlags: 0

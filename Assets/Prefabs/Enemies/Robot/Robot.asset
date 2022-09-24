@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65ddca2a1f5e3fc4cbb6ed4e2a6cff20, type: 3}
-  m_Name: Zombie
+  m_Name: Robot
   m_EditorClassIdentifier: 
   _MaxHealth: 100
   _HitDuration: 0.25

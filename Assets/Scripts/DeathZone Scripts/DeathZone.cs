@@ -37,8 +37,7 @@ public class DeathZone : MonoBehaviour
         //Debug.Log(agent.velocity);
         if (!player.isDead)
         {
-            float distance = Vector3.Distance(transform.position, actualTarget.position);
-            if (distance <= agent.stoppingDistance)
+            if (Vector3.Distance(agent.destination,transform.position) < .05f )
             {
                 StartCoroutine(MoveZone());
             }

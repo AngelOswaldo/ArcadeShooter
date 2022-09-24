@@ -7,7 +7,6 @@ public class EnemyStats : ScriptableObject
 {
     [Header("Enemy Stats", order = 10)]
     [SerializeField] private int _MaxHealth;
-    [SerializeField] private float _HitDuration;
 
     [Header("Attack Stats")]
     [SerializeField] private int _DamageAmount;
@@ -20,7 +19,6 @@ public class EnemyStats : ScriptableObject
     [SerializeField] private float _RotationSpeed;
 
     public int MaxHealth { get => _MaxHealth; }
-    public float HitDuration { get => _HitDuration; }
 
     public int DamageAmount { get => _DamageAmount; }
    //public float AttackDuration { get => _AttackDuration; }

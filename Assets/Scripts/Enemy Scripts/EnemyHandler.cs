@@ -13,10 +13,15 @@ public class EnemyHandler : MonoBehaviour
     private bool isDropSpawned = false;
     private void Start()
     {
+        //Obtenemos los componentes necesarios y colocamos la vida maxima del enemigo
         enemyIA = GetComponent<EnemyIA>();
         actualHealth = stats.MaxHealth;
     }
 
+    /// <summary>
+    /// Calcula e inflige el daño que recibira el enemigo.
+    /// </summary>
+    /// <param name="damage"></param>
     public void TakeDamage(int damage)
     {
         if(actualHealth < damage)
@@ -28,9 +33,9 @@ public class EnemyHandler : MonoBehaviour
         else
         {
             actualHealth-=damage;
-            StartCoroutine(enemyIA.HittedState());
         }
 
+        //Instanciamos el drop del enemigo
         if(actualHealth == 0 && !isDropSpawned)
         {
             Instantiate(drop,transform.position, Quaternion.identity);
