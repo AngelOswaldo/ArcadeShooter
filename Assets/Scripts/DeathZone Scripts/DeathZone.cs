@@ -37,22 +37,37 @@ public class DeathZone : MonoBehaviour
         //Debug.Log(agent.velocity);
         if (!player.isDead)
         {
-            if (Vector3.Distance(agent.destination,transform.position) < .05f )
+            float distance = agent.remainingDistance;
+            if (agent.pathStatus == NavMeshPathStatus.PathComplete && distance == 0)
             {
+                Debug.Log("I arrived");
                 StartCoroutine(MoveZone());
             }
-            else
-            {
-                return;
-            }
+
+            else return;
+
+            //if (Vector3.Distance(agent.destination,transform.position) < .05f )
+            //{
+            //    StartCoroutine(MoveZone());       
+            //}
+            //else
+            //{
+            //    return;
+            //}
         }
     }
 
     private IEnumerator MoveZone()
     {
-        Debug.Log("Esperando nuevo destino...");
-        yield return new WaitForSeconds(waitTime);
-        GetTarget();
+        if(agent.pathStatus != NavMeshPathStatus.PathComplete)
+            yield return null;
+
+        if (agent.pathStatus == NavMeshPathStatus.PathComplete)
+        {
+            Debug.Log("Esperando nuevo destino...");
+            yield return new WaitForSeconds(waitTime);
+            GetTarget();
+        }
     }
 
     private void GetTarget()
