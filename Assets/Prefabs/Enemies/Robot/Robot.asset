@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65ddca2a1f5e3fc4cbb6ed4e2a6cff20, type: 3}
   m_Name: Robot
   m_EditorClassIdentifier: 
-  _MaxHealth: 100
-  _HitDuration: 0.25
-  _DamageAmount: 5
+  _MaxHealth: 80
+  _DamageAmount: 10
+  _AttackAnimation: 0.8
   _SpeedAttack: 1.5
+  _RangeAttack: 1.5
   _MovementSpeed: 5
-  _ChaseDistance: 1
-  _RotationSpeed: 180
+  _ChaseDistance: 2
+  _RotationSpeed: 270

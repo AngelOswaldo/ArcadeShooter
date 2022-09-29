@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bb32dac4222ea84eaa760d844b84279, type: 3}
   m_Name: Rifle
   m_EditorClassIdentifier: 
-  _Damage: 10
+  _Damage: 20
   _Range: 100
   _FireRate: 3
   _ImpactForce: 10

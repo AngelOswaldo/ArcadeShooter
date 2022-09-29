@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65ddca2a1f5e3fc4cbb6ed4e2a6cff20, type: 3}
   m_Name: Tanque
   m_EditorClassIdentifier: 
-  _MaxHealth: 500
-  _HitDuration: 0.25
-  _DamageAmount: 10
-  _SpeedAttack: 1.5
+  _MaxHealth: 300
+  _DamageAmount: 25
+  _AttackAnimation: 1.5
+  _SpeedAttack: 2.8
+  _RangeAttack: 2
   _MovementSpeed: 5
-  _ChaseDistance: 1
-  _RotationSpeed: 180
+  _ChaseDistance: 3
+  _RotationSpeed: 270

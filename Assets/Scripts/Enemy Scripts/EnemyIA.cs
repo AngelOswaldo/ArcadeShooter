@@ -72,8 +72,8 @@ public class EnemyIA : MonoBehaviour
 
         float distance = Vector3.Distance(transform.position, target.position);
 
-        if (!canAttack)
-            return;
+        //if (!canAttack)
+        //    return;
 
         if (!isDead && canAttack)
         {
@@ -134,9 +134,16 @@ public class EnemyIA : MonoBehaviour
     private IEnumerator MeleeAttack()
     {
         canAttack = false;
-        player.TakeDamage(mHandler.stats.DamageAmount);
+        Invoke(nameof(CallDamage), mHandler.stats.AttackAnimation);
         yield return new WaitForSeconds(mHandler.stats.SpeedAttack);
         canAttack = true;
+    }
+
+    private void CallDamage()
+    {
+        float distance = Vector3.Distance(transform.position, target.position);
+        if (distance <= mHandler.stats.ChaseDistance + mHandler.stats.RangeAttack)
+            player.TakeDamage(mHandler.stats.DamageAmount);
     }
 
     /// <summary>
@@ -155,10 +162,10 @@ public class EnemyIA : MonoBehaviour
     /// </summary>
     public void DeathState()
     {
+        if (anim != null && !isDead)
+            deathCom.Execute(anim);
         isDead = true;
         agent.isStopped = true;
-        if (anim != null)
-            deathCom.Execute(anim);
         Destroy(gameObject, 3f);
     }
 

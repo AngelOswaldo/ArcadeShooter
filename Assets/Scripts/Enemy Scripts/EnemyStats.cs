@@ -10,8 +10,9 @@ public class EnemyStats : ScriptableObject
 
     [Header("Attack Stats")]
     [SerializeField] private int _DamageAmount;
-    //[SerializeField] private float _AttackDuration;
+    [SerializeField] private float _AttackAnimation;
     [SerializeField] private float _SpeedAttack;
+    [SerializeField] private float _RangeAttack;
 
     [Header("Movement Stats")]
     [SerializeField] private float _MovementSpeed;
@@ -21,8 +22,9 @@ public class EnemyStats : ScriptableObject
     public int MaxHealth { get => _MaxHealth; }
 
     public int DamageAmount { get => _DamageAmount; }
-   //public float AttackDuration { get => _AttackDuration; }
+    public float AttackAnimation { get => _AttackAnimation; }
     public float SpeedAttack { get => _SpeedAttack; }
+    public float RangeAttack { get => _RangeAttack; }
 
     public float MovementSpeed { get => _MovementSpeed; }
     public float ChaseDistance { get => _ChaseDistance; }

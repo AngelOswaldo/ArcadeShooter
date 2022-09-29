@@ -5208,7 +5208,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 23800000, guid: 754d32e0b36ee8c42a67785423887d50, type: 2}
+  m_NavMeshData: {fileID: 0}
 --- !u!1001 &1689597372
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7419,7 +7419,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!195 &282452531631571662
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -11638,7 +11638,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3124837781959293075}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 32.5, y: 3, z: 12.5}
+  m_LocalPosition: {x: 28.35, y: 3, z: 12.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11758,7 +11758,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3124837783709166943}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 34.75, y: 3, z: 32.5}
+  m_LocalPosition: {x: 30.05, y: 3, z: 32.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12550,7 +12550,7 @@ GameObject:
   - component: {fileID: 3107508380455032933}
   - component: {fileID: 3101606126952630825}
   - component: {fileID: 3151637855755964867}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: SM_Primitive_SoccerBall_01 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12569,7 +12569,7 @@ GameObject:
   - component: {fileID: 3107508380939706985}
   - component: {fileID: 3101606127281401893}
   - component: {fileID: 3151637856123202511}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: SM_Primitive_SoccerBall_01 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12588,7 +12588,7 @@ GameObject:
   - component: {fileID: 3107508380887969819}
   - component: {fileID: 3101606127333139031}
   - component: {fileID: 3151637856207780285}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: SM_Primitive_SoccerBall_01 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12607,7 +12607,7 @@ GameObject:
   - component: {fileID: 3107508380760651752}
   - component: {fileID: 3101606127191991716}
   - component: {fileID: 3151637856063716942}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: SM_Primitive_SoccerBall_01 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12626,7 +12626,7 @@ GameObject:
   - component: {fileID: 3107508379978484056}
   - component: {fileID: 3101606126355438356}
   - component: {fileID: 3151637856237814014}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: SM_Primitive_SoccerBall_01 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12645,7 +12645,7 @@ GameObject:
   - component: {fileID: 3107508380332265867}
   - component: {fileID: 3101606126815052743}
   - component: {fileID: 3151637856725850157}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: SM_Primitive_SoccerBall_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12664,7 +12664,7 @@ GameObject:
   - component: {fileID: 3107508379807431704}
   - component: {fileID: 3101606126266166868}
   - component: {fileID: 3151637857255880126}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: SM_Primitive_SoccerBall_01 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12683,7 +12683,7 @@ GameObject:
   - component: {fileID: 3107508379685369781}
   - component: {fileID: 3101606126111663609}
   - component: {fileID: 3151637857133821459}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: SM_Primitive_SoccerBall_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12702,7 +12702,7 @@ GameObject:
   - component: {fileID: 3107508379670616661}
   - component: {fileID: 3101606126134528025}
   - component: {fileID: 3151637857119065075}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: SM_Primitive_SoccerBall_01 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12721,7 +12721,7 @@ GameObject:
   - component: {fileID: 3107508379023203206}
   - component: {fileID: 3101606125431671242}
   - component: {fileID: 3151637857427919392}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: SM_Primitive_SoccerBall_01 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12740,7 +12740,7 @@ GameObject:
   - component: {fileID: 3107508379148576215}
   - component: {fileID: 3101606125574748059}
   - component: {fileID: 3151637857670737009}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: SM_Primitive_SoccerBall_01 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -64,6 +64,16 @@ public class WeaponSwitching : MonoBehaviour
         }
     }
 
-
+    public GameObject GetCurrentWeapon()
+    {
+        foreach (Transform weapon in transform)
+        {
+            if (weapon.gameObject.activeSelf)
+            {
+                return weapon.gameObject;
+            }
+        }
+        return null;
+    }
 
 }

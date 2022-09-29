@@ -12,6 +12,7 @@ public class SystemExperience : MonoBehaviour
 
     [SerializeField] private GameObject UIUpgrades;
     [SerializeField] private Transform weaponHolder;
+    public WeaponSwitching weaponSwitching;
 
     private void Awake()
     {
@@ -59,6 +60,11 @@ public class SystemExperience : MonoBehaviour
     {
         weapon.transform.SetParent(weaponHolder);
         weapon.SetActive(true);
+        if (weaponHolder.childCount > 0)
+        {
+            GameObject currentWeapon = weaponSwitching.GetCurrentWeapon();
+            currentWeapon.SetActive(false);
+        }
         Time.timeScale = 1;
         UIUpgrades.SetActive(false);
     }
