@@ -56,15 +56,15 @@ public class SystemExperience : MonoBehaviour
         UIUpgrades.SetActive(true);
     }
 
+    public GameObject currentWapon;
+
     public void UnlockWeapon(GameObject weapon)
     {
+        if(currentWapon != null)
+            currentWapon.SetActive(false);
         weapon.transform.SetParent(weaponHolder);
         weapon.SetActive(true);
-        if (weaponHolder.childCount > 0)
-        {
-            GameObject currentWeapon = weaponSwitching.GetCurrentWeapon();
-            currentWeapon.SetActive(false);
-        }
+        currentWapon = weapon;
         Time.timeScale = 1;
         UIUpgrades.SetActive(false);
     }

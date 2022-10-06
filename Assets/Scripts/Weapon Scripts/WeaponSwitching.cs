@@ -8,11 +8,6 @@ public class WeaponSwitching : MonoBehaviour
     private int selectedWeapon = 0;
     private int currentWeapon;
 
-    private void Start()
-    {
-        //SelectWeapon();
-    }
-
     private void Update()
     {
         currentWeapon = selectedWeapon;
@@ -63,17 +58,4 @@ public class WeaponSwitching : MonoBehaviour
             i++;
         }
     }
-
-    public GameObject GetCurrentWeapon()
-    {
-        foreach (Transform weapon in transform)
-        {
-            if (weapon.gameObject.activeSelf)
-            {
-                return weapon.gameObject;
-            }
-        }
-        return null;
-    }
-
 }
