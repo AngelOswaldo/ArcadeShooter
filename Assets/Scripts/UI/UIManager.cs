@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject losePanel;
 
     [SerializeField] private Text waveCount;
+    [SerializeField] private Text ammoCount;
 
     private void Awake()
     {
@@ -38,5 +39,20 @@ public class UIManager : MonoBehaviour
     public void UpdateWaveCount(int value)
     {
         waveCount.text = $"Oleada: {value}";
+    }
+
+    public void UpdateAmmo(int actualAmmo, int maxAmmo)
+    {
+        ammoCount.text = $"{actualAmmo}/{maxAmmo}";
+    }
+
+    public void Reloading()
+    {
+        ammoCount.text = "Recargando...";
+    }
+
+    public void InfiniteAmmo()
+    {
+        ammoCount.text = "Balas infinitas...";
     }
 }

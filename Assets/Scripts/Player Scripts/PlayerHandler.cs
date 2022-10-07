@@ -9,6 +9,8 @@ public class PlayerHandler : MonoBehaviour
 
     [SerializeField] private int actualHealth;
     public bool isDead = false;
+    private bool isInmortal = false;
+    public bool dontReload = false;
 
     [SerializeField] private Image hitRadial;
     [SerializeField] private Image healthImage;
@@ -36,22 +38,42 @@ public class PlayerHandler : MonoBehaviour
     {
         if (!isDead)
         {
-            HitRadialUI();
+            if (!isInmortal)
+            {
+                HitRadialUI();
+                HealthUI();
+                if (actualHealth < damage)
+                {
+                    actualHealth = 0;
+                }
+                else
+                {
+                    actualHealth -= damage;
+                }
+
+                if (actualHealth == 0)
+                {
+                    isDead = true;
+                    //Destroy(gameObject);
+                }
+            }
+        }
+    }
+
+    public void HealDamage(int heal)
+    {
+        if (!isDead)
+        {
             HealthUI();
 
-            if (actualHealth < damage)
+            int tempHP = actualHealth + heal;
+            if(tempHP > stats.MaxHealth)
             {
-                actualHealth = 0;
+                actualHealth = stats.MaxHealth;
             }
             else
             {
-                actualHealth -= damage;
-            }
-
-            if (actualHealth == 0)
-            {
-                isDead = true;
-                //Destroy(gameObject);
+                actualHealth += heal;
             }
         }
     }
@@ -97,5 +119,31 @@ public class PlayerHandler : MonoBehaviour
         var color = hitRadial.color;
         color.a = 1;
         hitRadial.color = color;
+    }
+
+    private IEnumerator Inmortal(float duration)
+    {
+        isInmortal = true;
+        yield return new WaitForSeconds(duration);
+        isInmortal = false;
+        actualHealth = stats.MaxHealth;
+    }
+
+    public void CallInmortal(float duration)
+    {
+        StartCoroutine(Inmortal(duration));
+    }
+
+    private IEnumerator DontReload(float duration)
+    {
+        dontReload = true;
+        UIManager.instance.InfiniteAmmo();
+        yield return new WaitForSeconds(duration);
+        dontReload = false;
+    }
+
+    public void CallDontReload(float duration)
+    {
+        StartCoroutine(DontReload(duration));
     }
 }

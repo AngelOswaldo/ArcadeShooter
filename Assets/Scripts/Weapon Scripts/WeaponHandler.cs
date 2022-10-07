@@ -15,14 +15,16 @@ public class WeaponHandler : MonoBehaviour
     [SerializeField] private Animator anim;
 
     private float nextTimeToFire = 0f;
-    private float currentAmmo;
+    private int currentAmmo;
     private bool isReloading = false;
 
     public LayerMask rayCollision;
 
+    private PlayerHandler player;
 
     private void Start()
     {
+        player = GetComponentInParent<PlayerHandler>();
         MuzzleFlash = Instantiate(weapon.MuzzleFlash, muzzleFlashPoint);
         currentAmmo = weapon.MaxAmmo;
     }
@@ -36,14 +38,18 @@ public class WeaponHandler : MonoBehaviour
     private void Update()
     {
         if (isReloading)
-            return; 
+            return;
 
-        if (currentAmmo <= 0)
+        if (player.dontReload)
+            return;
+
+        if (currentAmmo <= 0 || Input.GetKeyDown(KeyCode.R) && currentAmmo < weapon.MaxAmmo)
         {
             StartCoroutine(Reload());
             return;
         }
 
+        UIManager.instance.UpdateAmmo(currentAmmo, weapon.MaxAmmo);
     }
 
     private void FixedUpdate()
@@ -63,13 +69,14 @@ public class WeaponHandler : MonoBehaviour
         if(weapon.MuzzleFlash != null)
             MuzzleFlash.Play();
 
-        currentAmmo--;
+        if(!player.dontReload)
+            currentAmmo--;
 
         //Debug.DrawRay(fpsCam.transform.position, fpsCam.transform.forward, Color.green);
         RaycastHit hit;
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, weapon.Range, rayCollision))
         {
-            Debug.Log(hit.transform.name);
+            //Debug.Log(hit.transform.name);
 
             EnemyHandler target = hit.transform.GetComponent<EnemyHandler>();
             if (target != null)
@@ -112,7 +119,7 @@ public class WeaponHandler : MonoBehaviour
     {
         isReloading = true;
         Debug.Log("Reloading...");
-
+        UIManager.instance.Reloading();
         anim.SetBool("Reloading", true);
         yield return new WaitForSeconds(weapon.ReloadTime - .25f);
         anim.SetBool("Reloading", false);

@@ -114,9 +114,11 @@ public class EnemyIA : MonoBehaviour
                 break;
 
             case EnemyType.Range:
+                StartCoroutine(RangeAttack());
                 break;
 
             case EnemyType.Explosive:
+                StartCoroutine(ExplosiveAttack());
                 break;
 
             default:
@@ -139,11 +141,31 @@ public class EnemyIA : MonoBehaviour
         canAttack = true;
     }
 
+    private IEnumerator ExplosiveAttack()
+    {
+        canAttack = false;
+        Invoke(nameof(CallDamage), mHandler.stats.AttackAnimation);
+        yield return null;
+    }
+
+    private IEnumerator RangeAttack()
+    {
+        canAttack = false;
+        Invoke(nameof(CallDamage), mHandler.stats.AttackAnimation);
+        yield return new WaitForSeconds(mHandler.stats.SpeedAttack);
+        canAttack = true;
+    }
+
     private void CallDamage()
     {
         float distance = Vector3.Distance(transform.position, target.position);
         if (distance <= mHandler.stats.ChaseDistance + mHandler.stats.RangeAttack)
             player.TakeDamage(mHandler.stats.DamageAmount);
+
+        if(enemyType == EnemyType.Explosive)
+        {
+            mHandler.TakeDamage(mHandler.GetMaxHealth());
+        }
     }
 
     /// <summary>
@@ -166,7 +188,7 @@ public class EnemyIA : MonoBehaviour
             deathCom.Execute(anim);
         isDead = true;
         agent.isStopped = true;
-        Destroy(gameObject, 3f);
+        Destroy(gameObject, mHandler.stats.DeathAnimation + 1.5f);
     }
 
     /// <summary>

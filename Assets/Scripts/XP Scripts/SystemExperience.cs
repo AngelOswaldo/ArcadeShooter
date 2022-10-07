@@ -7,12 +7,13 @@ public class SystemExperience : MonoBehaviour
     private int actualXP = 0;
     private int expectedXP = 0;
     [SerializeField] private int NextLevelXP;
+    public bool maxLevelReached;
 
     public static SystemExperience instance;
 
     [SerializeField] private GameObject UIUpgrades;
     [SerializeField] private Transform weaponHolder;
-    public WeaponSwitching weaponSwitching;
+    [HideInInspector] public GameObject currentWeapon;
 
     private void Awake()
     {
@@ -34,6 +35,8 @@ public class SystemExperience : MonoBehaviour
 
     public void AddXP(int amount)
     {
+        if (maxLevelReached)
+            return;
         actualXP += amount;
         if(actualXP >= expectedXP)
         {
@@ -41,6 +44,8 @@ public class SystemExperience : MonoBehaviour
             if(expectedXP >= 2)
             {
                 Debug.Log("Maximo nivel alcanzado...");
+                NewUpgrade();
+                maxLevelReached = true;
             }
             else
             {
@@ -56,15 +61,13 @@ public class SystemExperience : MonoBehaviour
         UIUpgrades.SetActive(true);
     }
 
-    public GameObject currentWapon;
-
     public void UnlockWeapon(GameObject weapon)
     {
-        if(currentWapon != null)
-            currentWapon.SetActive(false);
+        if(currentWeapon != null)
+            currentWeapon.SetActive(false);
         weapon.transform.SetParent(weaponHolder);
         weapon.SetActive(true);
-        currentWapon = weapon;
+        currentWeapon = weapon;
         Time.timeScale = 1;
         UIUpgrades.SetActive(false);
     }

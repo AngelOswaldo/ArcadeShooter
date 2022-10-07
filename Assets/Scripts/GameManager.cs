@@ -101,4 +101,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public int ActualWave()
+    {
+        return waveIndex;
+    }
 }

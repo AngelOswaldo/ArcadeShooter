@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
@@ -9,7 +10,7 @@ public class DeathZone : MonoBehaviour
 {
     public List<Transform> wayPoints;
     public List<Transform> shufflePoints;
-    private int lastIndex;
+    private int lastIndex = 0;
 
     private NavMeshAgent agent;
     private Transform actualTarget;
@@ -19,13 +20,10 @@ public class DeathZone : MonoBehaviour
     public float waitTime;
     public bool playerInside;
     public int damage;
-    private bool isMoving = false;
 
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        lastIndex = -1;
-
         player = FindObjectOfType<PlayerHandler>();
 
         Shuffle();
@@ -34,48 +32,28 @@ public class DeathZone : MonoBehaviour
 
     private void Update()
     {
-        //Debug.Log(agent.velocity);
-        if (!player.isDead)
+        if (player.isDead)
         {
-            float distance = agent.remainingDistance;
-            if (agent.pathStatus == NavMeshPathStatus.PathComplete && distance == 0)
-            {
-                Debug.Log("I arrived");
-                StartCoroutine(MoveZone());
-            }
-
-            else return;
-
-            //if (Vector3.Distance(agent.destination,transform.position) < .05f )
-            //{
-            //    StartCoroutine(MoveZone());       
-            //}
-            //else
-            //{
-            //    return;
-            //}
+            StopAllCoroutines();
         }
     }
 
     private IEnumerator MoveZone()
     {
-        if(agent.pathStatus != NavMeshPathStatus.PathComplete)
-            yield return null;
-
-        if (agent.pathStatus == NavMeshPathStatus.PathComplete)
-        {
-            Debug.Log("Esperando nuevo destino...");
-            yield return new WaitForSeconds(waitTime);
-            GetTarget();
-        }
+        Debug.Log("Esperando nuevo destino...");
+        yield return new WaitForSeconds(waitTime);
+        GetTarget();
+        yield return new WaitUntil(() => agent.remainingDistance <= 0);
+        Debug.Log("Iniciando Nuevo Ciclo");
+        StartCoroutine(MoveZone());
     }
 
     private void GetTarget()
     {
         Debug.Log("Nuevo Destino");
         agent.isStopped = false;
-       
-        if (lastIndex < shufflePoints.Count)
+
+        if (lastIndex < shufflePoints.Count - 1)
         {
             lastIndex++;
         }
