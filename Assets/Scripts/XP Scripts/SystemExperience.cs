@@ -5,9 +5,6 @@ using UnityEngine;
 public class SystemExperience : MonoBehaviour
 {
     private int actualXP = 0;
-    private int expectedXP = 0;
-    [SerializeField] private int NextLevelXP;
-    public bool maxLevelReached;
 
     public static SystemExperience instance;
 
@@ -29,30 +26,12 @@ public class SystemExperience : MonoBehaviour
 
     private void Start()
     {
-        expectedXP = NextLevelXP;
         NewUpgrade();
     }
 
     public void AddXP(int amount)
     {
-        if (maxLevelReached)
-            return;
-        actualXP += amount;
-        if(actualXP >= expectedXP)
-        {
-            actualXP = 0;
-            if(expectedXP >= 2)
-            {
-                Debug.Log("Maximo nivel alcanzado...");
-                NewUpgrade();
-                maxLevelReached = true;
-            }
-            else
-            {
-                expectedXP += NextLevelXP;
-                NewUpgrade();
-            }
-        }
+        actualXP =+ amount;
     }
 
     private void NewUpgrade()

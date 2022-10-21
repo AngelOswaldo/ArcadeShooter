@@ -6,6 +6,7 @@ public class EnemyHandler : MonoBehaviour
 {
     public EnemyStats stats;
     private EnemyIA enemyIA;
+    public int xpAmount;
 
     [SerializeField] private int actualHealth;
     
@@ -57,10 +58,7 @@ public class EnemyHandler : MonoBehaviour
 
     private void DropItem()
     {
-        if (SystemExperience.instance.maxLevelReached == false)
-        {
-            Instantiate(drops[0], transform.position + new Vector3(0f, 1.25f, 0f), Quaternion.identity);
-        }
+        SystemExperience.instance.AddXP(xpAmount);
 
         int randomPrice = Random.Range(1, 101);
 
