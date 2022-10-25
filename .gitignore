@@ -58,3 +58,8 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json
+ProjectSettings/ShaderGraphSettings.asset
+ProjectSettings/TimelineSettings.asset
+UserSettings/Layouts/CurrentMaximizeLayout.dwlt
+UserSettings/Layouts/default-2021.dwlt

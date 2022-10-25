@@ -4369,8 +4369,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85a4f5a0a41560842b787216694ecb12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NextLevelXP: 10
-  maxLevelReached: 0
   UIUpgrades: {fileID: 9631115}
   weaponHolder: {fileID: 5887431631730177666}
   currentWeapon: {fileID: 0}
@@ -7123,7 +7121,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1827946583}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.9, z: 0}
+  m_LocalPosition: {x: 0, y: 0.9, z: 13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
