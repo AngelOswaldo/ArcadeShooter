@@ -18,4 +18,4 @@ MonoBehaviour:
   _ImpactForce: 10
   _MaxAmmo: 60
   _ReloadTime: 1.25
-  _MuzzleFlash: {fileID: 8019250030887390074, guid: d9c2294601c07d5498b5d9da157669a7, type: 3}
+  _MuzzleFlash: {fileID: 4462792052823865917, guid: eea4ffdd1e9df204dbfb9840db578975, type: 3}
