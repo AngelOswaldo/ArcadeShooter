@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Rifle
   m_EditorClassIdentifier: 
   _Damage: 35
-  _Range: 100
+  _Range: 80
   _FireRate: 8
   _ImpactForce: 10
   _MaxAmmo: 30

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SubMachne
   m_EditorClassIdentifier: 
   _Damage: 20
-  _Range: 80
+  _Range: 40
   _FireRate: 10
   _ImpactForce: 10
   _MaxAmmo: 60

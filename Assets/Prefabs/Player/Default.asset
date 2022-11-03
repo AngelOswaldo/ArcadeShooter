@@ -13,6 +13,29 @@ MonoBehaviour:
   m_Name: Default
   m_EditorClassIdentifier: 
   _MaxHealth: 100
+  _HealthLevels: 6400000096000000e10000001d010000a901000053020000c602000043030000b1030000e8030000
   _WalkSpeed: 5
+  _WalkSpeedLevels:
+  - 5
+  - 5
+  - 5
+  - 5
+  - 5
+  - 5
+  - 5
+  - 5
+  - 5
+  - 5
   _RunSpeed: 10
+  _RunSpeedLevels:
+  - 10
+  - 10
+  - 10
+  - 10
+  - 10
+  - 10
+  - 10
+  - 10
+  - 10
+  - 10
   _JumpForce: 10

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Pistol
   m_EditorClassIdentifier: 
   _Damage: 50
-  _Range: 50
+  _Range: 40
   _FireRate: 4
   _ImpactForce: 10
   _MaxAmmo: 6

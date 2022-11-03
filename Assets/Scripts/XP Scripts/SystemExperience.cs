@@ -8,6 +8,7 @@ public class SystemExperience : MonoBehaviour
 
     public static SystemExperience instance;
 
+    [SerializeField] private GameObject UIWeapons;
     [SerializeField] private GameObject UIUpgrades;
     [SerializeField] private Transform weaponHolder;
     [HideInInspector] public GameObject currentWeapon;
@@ -26,7 +27,7 @@ public class SystemExperience : MonoBehaviour
 
     private void Start()
     {
-        NewUpgrade();
+        NewWeapon();
     }
 
     public void AddXP(int amount)
@@ -40,6 +41,12 @@ public class SystemExperience : MonoBehaviour
         UIUpgrades.SetActive(true);
     }
 
+    private void NewWeapon()
+    {
+        Time.timeScale = 0f;
+        UIWeapons.SetActive(true);
+    }
+
     public void UnlockWeapon(GameObject weapon)
     {
         if(currentWeapon != null)
@@ -48,6 +55,6 @@ public class SystemExperience : MonoBehaviour
         weapon.SetActive(true);
         currentWeapon = weapon;
         Time.timeScale = 1;
-        UIUpgrades.SetActive(false);
+        UIWeapons.SetActive(false);
     }
 }
