@@ -17,7 +17,7 @@ MonoBehaviour:
   _StartDamage: 20
   _DamageMultiplier: 8
   _DamageSplitter: 2
-  _SpeedAttack: 1.5
+  _SpeedAttack: 2.15
   _RangeAttack: 2
   _MovementSpeed: 6
   _ChaseDistance: 10

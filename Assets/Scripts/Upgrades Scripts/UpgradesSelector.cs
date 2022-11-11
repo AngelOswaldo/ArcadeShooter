@@ -1,18 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UpgradesSelector : MonoBehaviour
 {
     public List<GameObject> upgrades;
     [SerializeField] private int upgradesToShow;
 
+    public Button input1, input2, input3;
+    public TextMeshProUGUI inputText1, inputText2, inputText3;
+
     private void OnEnable()
     {
         CheckList();
         ShowUpgrades();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.Alpha1))
+        {
+            input1.onClick.Invoke();
+        }
+        else if (Input.GetKey(KeyCode.Alpha2))
+        {
+            input2.onClick.Invoke();
+        }
+        else if (Input.GetKey(KeyCode.Alpha3))
+        {
+            input3.onClick.Invoke();
+        }
     }
 
     private void CheckList()
@@ -47,5 +66,21 @@ public class UpgradesSelector : MonoBehaviour
         upgrades[b].SetActive(true);
         upgrades[c].SetActive(true);
 
+        input1 = upgrades[a].GetComponent<Button>();
+        input2 = upgrades[b].GetComponent<Button>();
+        input3 = upgrades[c].GetComponent<Button>();
+
+        inputText1 = upgrades[a].transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+        inputText2 = upgrades[b].transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+        inputText3 = upgrades[c].transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+
+        SetButtonText();
+    }
+
+    private void SetButtonText()
+    {
+        inputText1.text = "Press 1.";
+        inputText2.text = "Press 2.";
+        inputText3.text = "Press 3.";
     }
 }

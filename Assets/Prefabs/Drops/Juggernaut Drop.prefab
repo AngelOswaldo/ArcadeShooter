@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7035567102028310810}
   - component: {fileID: 7025997077731026170}
   - component: {fileID: 6872749746351212717}
+  - component: {fileID: -4034838173434078914}
   - component: {fileID: 6582577038217615021}
   m_Layer: 0
   m_Name: Juggernaut Drop
@@ -99,6 +100,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff71de8b7fd8caa41bc4e0efd531a024, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-4034838173434078914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7048642642071241714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19088c804fc55a6419c861d02783976b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedRotation: 0.5
+  offset: 0.2
+  speed: 1.25
 --- !u!135 &6582577038217615021
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -13,6 +13,7 @@ public enum EnemyType
 public class EnemyIA : MonoBehaviour
 {
     private NavMeshAgent agent;
+    private Collider mCollider;
 
     private Transform target;
     private PlayerHandler player;
@@ -34,6 +35,7 @@ public class EnemyIA : MonoBehaviour
     {
         //Obtenemos los componentes necesarios
         agent = GetComponent<NavMeshAgent>();
+        mCollider = GetComponent<Collider>();
         mHandler = GetComponent<EnemyHandler>();
         anim = GetComponent<Animator>();
         //Ajustamos valores dependiendo de sus estadisticas
@@ -56,7 +58,7 @@ public class EnemyIA : MonoBehaviour
         {
             IAStateMachine();
         }
-        else
+        else if (player.isDead && !isDead)
         {
             IdleState();
         }
@@ -187,7 +189,8 @@ public class EnemyIA : MonoBehaviour
         if (anim != null && !isDead)
             deathCom.Execute(anim);
         isDead = true;
-        agent.isStopped = true;
+        agent.enabled = false;
+        mCollider.enabled = false;
         Destroy(gameObject, mHandler.stats.DeathAnimation + 1.5f);
     }
 

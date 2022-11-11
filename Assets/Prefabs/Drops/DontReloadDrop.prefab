@@ -9588,6 +9588,7 @@ GameObject:
   - component: {fileID: 4795048984872091985}
   - component: {fileID: 4804903461424825761}
   - component: {fileID: 7100253603918802558}
+  - component: {fileID: 4953110395531600884}
   - component: {fileID: 9069377200314477387}
   m_Layer: 7
   m_Name: DontReloadDrop
@@ -9675,6 +9676,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ee91174d3f25424b93296fe5e14dd94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4953110395531600884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4826591131436936317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19088c804fc55a6419c861d02783976b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedRotation: 0.5
+  offset: 0.2
+  speed: 1.25
 --- !u!135 &9069377200314477387
 SphereCollider:
   m_ObjectHideFlags: 0

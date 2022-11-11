@@ -127,9 +127,11 @@ public class PlayerHandler : MonoBehaviour
     private IEnumerator Inmortal(float duration)
     {
         isInmortal = true;
+        UIManager.instance.Inmortal();
         yield return new WaitForSeconds(duration);
         isInmortal = false;
-        actualHealth = stats.MaxHealth;
+        HealDamage(stats.MaxHealth);
+        UIManager.instance.Normal();
     }
 
     public void CallInmortal(float duration)
@@ -143,6 +145,7 @@ public class PlayerHandler : MonoBehaviour
         UIManager.instance.InfiniteAmmo();
         yield return new WaitForSeconds(duration);
         dontReload = false;
+        UIManager.instance.Normal();
     }
 
     public void CallDontReload(float duration)

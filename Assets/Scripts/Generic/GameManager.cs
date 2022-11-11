@@ -55,7 +55,10 @@ public class GameManager : MonoBehaviour
 
         if (isFinished)
         {
-            waveIndex += 1;
+            if(waveIndex < waves.Count -1)
+                waveIndex += 1;
+
+            UIManager.instance.UpdateWaveCount(waveIndex + 1);
 
             if (waveIndex % 2 == 0)
             {
@@ -84,8 +87,6 @@ public class GameManager : MonoBehaviour
 
     protected IEnumerator SpawnWave()
     {
-        UIManager.instance.UpdateWaveCount(waveIndex + 1);
-
         int spawnIndex;
         Transform selectedSpawn;
 

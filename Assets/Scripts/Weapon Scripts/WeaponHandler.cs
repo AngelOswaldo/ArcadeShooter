@@ -17,6 +17,7 @@ public class WeaponHandler : MonoBehaviour
     private float nextTimeToFire = 0f;
     private int currentAmmo;
     private bool isReloading = false;
+    private bool isRunning = false;
 
     public LayerMask rayCollision;
 
@@ -37,6 +38,9 @@ public class WeaponHandler : MonoBehaviour
 
     private void Update()
     {
+        if (isRunning)
+            return;
+
         if (isReloading)
             return;
 
@@ -54,6 +58,24 @@ public class WeaponHandler : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            anim.SetBool("Running", true);
+            anim.SetBool("Reloading", false);
+            isReloading = false;
+            isRunning = true;
+            StopAllCoroutines();
+            UIManager.instance.UpdateAmmo(currentAmmo, stats.MaxAmmo);
+        }
+        else
+        {
+            anim.SetBool("Running", false);
+            isRunning = false;
+        }
+
+        if (isRunning)
+            return;
+
         if (isReloading)
             return;
 
@@ -93,7 +115,7 @@ public class WeaponHandler : MonoBehaviour
     private IEnumerator Reload()
     {
         isReloading = true;
-        Debug.Log("Reloading...");
+        //Debug.Log("Reloading...");
         UIManager.instance.Reloading();
         anim.SetBool("Reloading", true);
         yield return new WaitForSeconds(stats.ReloadTime - .25f);
