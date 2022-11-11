@@ -126,7 +126,7 @@ public class EnemyIA : MonoBehaviour
                 break;
         }
         
-        Debug.Log("Atacando");
+        //Debug.Log("Atacando");
     }
 
     /// <summary>
@@ -159,12 +159,12 @@ public class EnemyIA : MonoBehaviour
     private void CallDamage()
     {
         float distance = Vector3.Distance(transform.position, target.position);
-        if (distance <= mHandler.stats.ChaseDistance + mHandler.stats.RangeAttack)
-            player.TakeDamage(mHandler.stats.DamageAmount);
+        if (distance <= mHandler.stats.GetMaxRangeAttack() && !isDead)
+            player.TakeDamage(mHandler.stats.GetDamage(GameManager.instance.ActualWave()));
 
         if(enemyType == EnemyType.Explosive)
         {
-            mHandler.TakeDamage(mHandler.GetMaxHealth());
+            mHandler.TakeDamage(mHandler.stats.GetMaxHealth(GameManager.instance.ActualWave()));
         }
     }
 

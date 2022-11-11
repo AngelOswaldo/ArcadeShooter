@@ -8,24 +8,28 @@ using UnityEngine.AI;
 
 public class DeathZone : MonoBehaviour
 {
-    public List<Transform> wayPoints;
-    public List<Transform> shufflePoints;
+    [Header("Death Zone Settings")]
+    [SerializeField] Transform wayPointsContainer;
+    private List<Transform> wayPoints;
+    [SerializeField] private float waitTime;
+    [SerializeField]private float damagePercentage;
+    
+    private List<Transform> shufflePoints;
     private int lastIndex = 0;
-
     private NavMeshAgent agent;
     private Transform actualTarget;
-
     private PlayerHandler player;
+    private bool playerInside;
 
-    public float waitTime;
-    public bool playerInside;
-    public int damage;
+    [Header("Death Zone Levels")]
+    public List<float> sizeLevels;
 
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         player = FindObjectOfType<PlayerHandler>();
 
+        GetSpawnPoints();
         Shuffle();
         StartCoroutine(MoveZone());
     }
@@ -38,19 +42,34 @@ public class DeathZone : MonoBehaviour
         }
     }
 
+    protected void GetSpawnPoints()
+    {
+        wayPoints = new List<Transform>();
+        foreach (Transform newSpawn in wayPointsContainer)
+        {
+            wayPoints.Add(newSpawn);
+        }
+    }
+
+    public void ScaleDeathZone(int level)
+    {
+        float newSize = sizeLevels[level];
+        transform.localScale = new Vector3(newSize, newSize, newSize);
+    }
+
     private IEnumerator MoveZone()
     {
-        Debug.Log("Esperando nuevo destino...");
+        //Debug.Log("Esperando nuevo destino...");
         yield return new WaitForSeconds(waitTime);
         GetTarget();
         yield return new WaitUntil(() => agent.remainingDistance <= 0);
-        Debug.Log("Iniciando Nuevo Ciclo");
+        //Debug.Log("Iniciando Nuevo Ciclo");
         StartCoroutine(MoveZone());
     }
 
     private void GetTarget()
     {
-        Debug.Log("Nuevo Destino");
+        //Debug.Log("Nuevo Destino");
         agent.isStopped = false;
 
         if (lastIndex < shufflePoints.Count - 1)
@@ -76,8 +95,8 @@ public class DeathZone : MonoBehaviour
     {
         while (!playerInside)
         {
-            player.TakeDamage(damage);
-            yield return new WaitForSeconds(1f);
+            player.TakeDamage(player.stats.MaxHealth * damagePercentage);
+            yield return new WaitForSeconds(1.25f);
         }
     }
 
@@ -87,7 +106,7 @@ public class DeathZone : MonoBehaviour
         {
             playerInside = false;
             StartCoroutine(InflictWounds());
-            Debug.Log("Jugador Salio");
+            //Debug.Log("Jugador Salio");
         }
     }
 
@@ -97,7 +116,7 @@ public class DeathZone : MonoBehaviour
         {
             playerInside = true;
             StopCoroutine(InflictWounds());
-            Debug.Log("Jugador Adentro");
+            //Debug.Log("Jugador Adentro");
         }
     }
 }

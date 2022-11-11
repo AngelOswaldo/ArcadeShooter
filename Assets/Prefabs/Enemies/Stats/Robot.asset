@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65ddca2a1f5e3fc4cbb6ed4e2a6cff20, type: 3}
   m_Name: Robot
   m_EditorClassIdentifier: 
-  _MaxHealth: 100
-  _DamageAmount: 5
+  _StartHealth: 100
+  _HealthMultiplier: 10
+  _StartDamage: 20
+  _DamageMultiplier: 10
+  _DamageSplitter: 5
   _SpeedAttack: 1.2
   _RangeAttack: 1.5
   _MovementSpeed: 6.5

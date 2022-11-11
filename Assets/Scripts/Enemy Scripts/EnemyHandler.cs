@@ -6,7 +6,6 @@ public class EnemyHandler : MonoBehaviour
 {
     public EnemyStats stats;
     private EnemyIA enemyIA;
-    public int xpAmount;
 
     [SerializeField] private int actualHealth;
     
@@ -17,18 +16,7 @@ public class EnemyHandler : MonoBehaviour
     {
         //Obtenemos los componentes necesarios y colocamos la vida maxima del enemigo
         enemyIA = GetComponent<EnemyIA>();
-        actualHealth = GetMaxHealth();
-    }
-
-    /// <summary>
-    /// Calculamos la vida maxima del enemigo dependiendo de numero de oleada.
-    /// </summary>
-    /// <returns>Regresa la vida maxima.</returns>
-    public int GetMaxHealth()
-    {
-        int health;
-        health = stats.MaxHealth * (1 + GameManager.instance.ActualWave() / 10);
-        return health;
+        actualHealth = stats.GetMaxHealth(GameManager.instance.ActualWave());
     }
 
     /// <summary>
@@ -58,25 +46,23 @@ public class EnemyHandler : MonoBehaviour
 
     private void DropItem()
     {
-        SystemExperience.instance.AddXP(xpAmount);
-
         int randomPrice = Random.Range(1, 101);
 
-        if(randomPrice >= 1 && randomPrice <= 60)
+        if(randomPrice >= 1 && randomPrice <= 55)
         {
             return;            
         }
-        else if(randomPrice >= 61 && randomPrice <= 90)
+        else if(randomPrice >= 56 && randomPrice <= 90)
         {
-            Instantiate(drops[1], transform.position + new Vector3(0f, 1.25f, 0f), Quaternion.identity);            
+            Instantiate(drops[0], transform.position + new Vector3(0f, 1.25f, 0f), Quaternion.identity);            
         }
         else if(randomPrice >= 91 && randomPrice <= 95)
         {
-            Instantiate(drops[2], transform.position + new Vector3(0f, 1.25f, 0f), Quaternion.identity);            
+            Instantiate(drops[1], transform.position + new Vector3(0f, 1.25f, 0f), Quaternion.identity);            
         }
         else
         {
-            Instantiate(drops[3], transform.position + new Vector3(0f, 1.25f, 0f), Quaternion.identity);
+            Instantiate(drops[2], transform.position + new Vector3(0f, 1.25f, 0f), Quaternion.identity);
         }
     }
 }

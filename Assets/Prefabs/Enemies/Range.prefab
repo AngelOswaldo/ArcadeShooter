@@ -1648,7 +1648,6 @@ MonoBehaviour:
   stats: {fileID: 11400000, guid: bdadc4496c2f5514181ad9903bcb15b2, type: 2}
   actualHealth: 0
   drops:
-  - {fileID: 4593221640477457772, guid: 5cdac69d575edee4396af0421baa82d0, type: 3}
   - {fileID: 1036185689967059701, guid: 59e89e3d094004544be09a779868fd9e, type: 3}
   - {fileID: 4826591131436936317, guid: e06f420439a385743b2f5d053830b4da, type: 3}
   - {fileID: 7048642642071241714, guid: 98b9ebe0bdeaaf944a560508c86ab336, type: 3}
@@ -2177,7 +2176,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private Text waveCount;
     [SerializeField] private Text ammoCount;
+    [SerializeField] private Text healthCount;
 
     private void Awake()
     {
@@ -54,5 +55,10 @@ public class UIManager : MonoBehaviour
     public void InfiniteAmmo()
     {
         ammoCount.text = "Balas infinitas...";
+    }
+
+    public void UpdateHealth(float actualHealth, float maxHealth)
+    {
+        healthCount.text = $"{actualHealth}/{maxHealth}";
     }
 }

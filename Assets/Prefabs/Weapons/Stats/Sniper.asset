@@ -12,10 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bb32dac4222ea84eaa760d844b84279, type: 3}
   m_Name: Sniper
   m_EditorClassIdentifier: 
-  _Damage: 150
+  _Damage: 250
+  _DamageLevels: fa000000bc0200009d0300007e0400005f050000400600002107000002080000e3080000c4090000
   _Range: 150
   _FireRate: 0.82
-  _ImpactForce: 10
-  _MaxAmmo: 5
-  _ReloadTime: 1.5
+  _MaxAmmo: 3
+  _AmmoLevels: 0300000004000000050000000600000007000000070000000800000009000000090000000a000000
+  _ReloadTime: 5
+  _ReloadLevels:
+  - 5
+  - 4.8
+  - 4.6
+  - 4.4
+  - 4.2
+  - 4
+  - 3.6
+  - 3.4
+  - 3.2
+  - 3
   _MuzzleFlash: {fileID: 350390484758179474, guid: de9e817bf141bec4392782fc3ee5e90f, type: 3}

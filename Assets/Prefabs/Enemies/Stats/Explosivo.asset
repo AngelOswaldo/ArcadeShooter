@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65ddca2a1f5e3fc4cbb6ed4e2a6cff20, type: 3}
   m_Name: Explosivo
   m_EditorClassIdentifier: 
-  _MaxHealth: 30
-  _DamageAmount: 15
+  _StartHealth: 50
+  _HealthMultiplier: 5
+  _StartDamage: 50
+  _DamageMultiplier: 10
+  _DamageSplitter: 2
   _SpeedAttack: 1
   _RangeAttack: 2.5
   _MovementSpeed: 10

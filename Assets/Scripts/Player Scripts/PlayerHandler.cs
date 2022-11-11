@@ -7,11 +7,12 @@ public class PlayerHandler : MonoBehaviour
 {
     public PlayerStats stats;
 
-    [SerializeField] private int actualHealth;
-    public bool isDead = false;
+    [SerializeField] private float actualHealth;
+    [HideInInspector] public bool isDead = false;
     private bool isInmortal = false;
-    public bool dontReload = false;
+    [HideInInspector] public bool dontReload = false;
 
+    [Header("UI VFX")]
     [SerializeField] private Image hitRadial;
     [SerializeField] private Image healthImage;
 
@@ -34,14 +35,14 @@ public class PlayerHandler : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         if (!isDead)
         {
             if (!isInmortal)
             {
                 HitRadialUI();
-                HealthUI();
+                
                 if (actualHealth < damage)
                 {
                     actualHealth = 0;
@@ -51,22 +52,23 @@ public class PlayerHandler : MonoBehaviour
                     actualHealth -= damage;
                 }
 
+                HealthUI();
+                UIManager.instance.UpdateHealth(actualHealth, stats.MaxHealth);
+
                 if (actualHealth == 0)
                 {
                     isDead = true;
-                    //Destroy(gameObject);
+                    Time.timeScale = 0;
                 }
             }
         }
     }
 
-    public void HealDamage(int heal)
+    public void HealDamage(float heal)
     {
         if (!isDead)
         {
-            HealthUI();
-
-            int tempHP = actualHealth + heal;
+            float tempHP = actualHealth + heal;
             if(tempHP > stats.MaxHealth)
             {
                 actualHealth = stats.MaxHealth;
@@ -75,43 +77,44 @@ public class PlayerHandler : MonoBehaviour
             {
                 actualHealth += heal;
             }
+
+            HealthUI();
+            UIManager.instance.UpdateHealth(actualHealth, stats.MaxHealth);
         }
     }
 
     private void HealthUI()
     {
-        if (actualHealth >= 100)
+        if (actualHealth >= stats.MaxHealth)
         {
             Color color = healthImage.color;
             color.a = 0f;
             healthImage.color = color;
         }
-        else if(actualHealth >= 75)
+        else if (actualHealth >= stats.MaxHealth * .75)
         {
             Color color = healthImage.color;
             color.a = 0.25f;
             healthImage.color = color;
         }
-        else if (actualHealth >= 50)
+        else if (actualHealth >= stats.MaxHealth * .50)
         {
             Color color = healthImage.color;
             color.a = 0.35f;
             healthImage.color = color;
         }
-        else if (actualHealth >= 25)
+        else if (actualHealth >= stats.MaxHealth * .25)
         {
             Color color = healthImage.color;
             color.a = 0.55f;
             healthImage.color = color;
         }
-        else if (actualHealth >= 15)
+        else if (actualHealth >= stats.MaxHealth * .10)
         {
             Color color = healthImage.color;
             color.a = 1f;
             healthImage.color = color;
         }
-
-
     }
 
     private void HitRadialUI() 

@@ -12,10 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bb32dac4222ea84eaa760d844b84279, type: 3}
   m_Name: SubMachne
   m_EditorClassIdentifier: 
-  _Damage: 20
+  _Damage: 12
+  _DamageLevels: 0c000000230000002e0000003900000045000000500000005b00000066000000720000007d000000
   _Range: 40
   _FireRate: 10
-  _ImpactForce: 10
   _MaxAmmo: 60
-  _ReloadTime: 1.25
+  _AmmoLevels: 20000000320000003a000000430000004c000000550000005e000000660000006f00000078000000
+  _ReloadTime: 3
+  _ReloadLevels:
+  - 3
+  - 2.916
+  - 2.832
+  - 2.748
+  - 2.664
+  - 2.58
+  - 2.496
+  - 2.412
+  - 2.328
+  - 2.16
   _MuzzleFlash: {fileID: 4462792052823865917, guid: eea4ffdd1e9df204dbfb9840db578975, type: 3}

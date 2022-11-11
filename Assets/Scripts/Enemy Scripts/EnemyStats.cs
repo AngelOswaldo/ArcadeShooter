@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Enemy Stats", menuName = "Scriptable Objects/Enemy Stats", order = 52)]
@@ -9,12 +10,15 @@ public class EnemyStats : ScriptableObject
     /// Vida maxima del enemigo.
     /// </summary>
     [Header("Enemy Stats", order = 10)]
-    [SerializeField] private int _MaxHealth;
+    [SerializeField] private int _StartHealth;
+    [SerializeField] private int _HealthMultiplier;
     /// <summary>
     /// Daño que realiza al jugador.
     /// </summary>
     [Header("Attack Stats")]
-    [SerializeField] private int _DamageAmount; 
+    [SerializeField] private int _StartDamage;
+    [SerializeField] private int _DamageMultiplier;
+    [SerializeField] private float _DamageSplitter;
     /// <summary>
     /// Velocidad de ataque del enemigo.
     /// </summary>
@@ -48,12 +52,22 @@ public class EnemyStats : ScriptableObject
     /// </summary>
     [SerializeField] private float _DeathAnimation;
 
-    public int MaxHealth { get => _MaxHealth; }
+    public int GetMaxHealth(int waveNumber)
+    {
+        if(waveNumber <= 0) { return _StartHealth; }
+        return (_HealthMultiplier * waveNumber) + _StartHealth;
+    }
+    public int GetDamage(int waveNumber)
+    {
+        if (waveNumber <= 0) { return _StartDamage; }
+        return ((int)(((waveNumber * _DamageMultiplier) / _DamageSplitter) + _StartDamage));
+    }
+    public float GetMaxRangeAttack()
+    {
+        return _RangeAttack + _ChaseDistance;
+    }
 
-    public int DamageAmount { get => _DamageAmount; }
     public float SpeedAttack { get => _SpeedAttack; }
-    public float RangeAttack { get => _RangeAttack; }
-
     public float MovementSpeed { get => _MovementSpeed; }
     public float ChaseDistance { get => _ChaseDistance; }
     public float RotationSpeed { get => _RotationSpeed; }

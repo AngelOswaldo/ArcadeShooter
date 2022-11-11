@@ -12,10 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bb32dac4222ea84eaa760d844b84279, type: 3}
   m_Name: Pistol
   m_EditorClassIdentifier: 
-  _Damage: 50
+  _Damage: 35
+  _DamageLevels: 2300000080000000af000000dd0000000c0100003a0100006801000097010000c5010000f4010000
   _Range: 40
   _FireRate: 4
-  _ImpactForce: 10
-  _MaxAmmo: 6
-  _ReloadTime: 1
+  _MaxAmmo: 12
+  _AmmoLevels: 0c0000000e0000001000000011000000120000001300000014000000160000001700000018000000
+  _ReloadTime: 2.5
+  _ReloadLevels:
+  - 2.5
+  - 2.375
+  - 2.25
+  - 2.125
+  - 2
+  - 1.875
+  - 1.75
+  - 1.65
+  - 1.5
+  - 1.25
   _MuzzleFlash: {fileID: 5667502738608486751, guid: 4a504373ec2da4348928bbe59d536c64, type: 3}

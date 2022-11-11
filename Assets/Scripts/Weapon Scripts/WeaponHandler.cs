@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WeaponHandler : MonoBehaviour
 {
-    [SerializeField] private WeaponStats weapon;
+    public WeaponStats stats;
 
     [SerializeField] private Camera fpsCam;
     [SerializeField] private GameObject impactEffect;
@@ -25,8 +25,8 @@ public class WeaponHandler : MonoBehaviour
     private void Start()
     {
         player = GetComponentInParent<PlayerHandler>();
-        MuzzleFlash = Instantiate(weapon.MuzzleFlash, muzzleFlashPoint);
-        currentAmmo = weapon.MaxAmmo;
+        MuzzleFlash = Instantiate(stats.MuzzleFlash, muzzleFlashPoint);
+        currentAmmo = stats.MaxAmmo;
     }
 
     private void OnEnable()
@@ -43,13 +43,13 @@ public class WeaponHandler : MonoBehaviour
         if (player.dontReload)
             return;
 
-        if (currentAmmo <= 0 || Input.GetKeyDown(KeyCode.R) && currentAmmo < weapon.MaxAmmo)
+        if (currentAmmo <= 0 || Input.GetKeyDown(KeyCode.R) && currentAmmo < stats.MaxAmmo)
         {
             StartCoroutine(Reload());
             return;
         }
 
-        UIManager.instance.UpdateAmmo(currentAmmo, weapon.MaxAmmo);
+        UIManager.instance.UpdateAmmo(currentAmmo, stats.MaxAmmo);
     }
 
     private void FixedUpdate()
@@ -59,14 +59,14 @@ public class WeaponHandler : MonoBehaviour
 
         if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
         {
-            nextTimeToFire = Time.time + 1f / weapon.FireRate;
+            nextTimeToFire = Time.time + 1f / stats.FireRate;
             Shoot();
         }
     }
 
     private void Shoot()
     {
-        if(weapon.MuzzleFlash != null)
+        if(stats.MuzzleFlash != null)
             MuzzleFlash.Play();
 
         if(!player.dontReload)
@@ -74,20 +74,13 @@ public class WeaponHandler : MonoBehaviour
 
         //Debug.DrawRay(fpsCam.transform.position, fpsCam.transform.forward, Color.green);
         RaycastHit hit;
-        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, weapon.Range, rayCollision))
+        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, stats.Range, rayCollision))
         {
-            //Debug.Log(hit.transform.name);
-
             EnemyHandler target = hit.transform.GetComponent<EnemyHandler>();
             if (target != null)
             {
-                target.TakeDamage(weapon.Damage);
+                target.TakeDamage(stats.Damage);
             }
-
-            //if(hit.rigidbody != null)
-            //{
-            //    hit.rigidbody.AddForce(-hit.normal * weapon.ImpactForce);
-            //}
 
             if(impactEffect != null)
             {
@@ -95,24 +88,6 @@ public class WeaponHandler : MonoBehaviour
                 Destroy(impactPrefab, .5f);
             }
         }
-
-
-
-        //RaycastHit[] hits;
-
-        //hits = new RaycastHit[10];
-
-        //for(int i = 0; i < hits.Length; i++)
-        //{
-
-        //    Vector3 spreaadDirection = fpsCam.transform.forward + new Vector3(Random.RandomRange(-1f, 1f), Random.RandomRange(-1f, 1f), 0);
-
-
-        //    if(Physics.Raycast(fpsCam.transform.position, spreaadDirection, out hits[i], weapon.Range))
-        //    {
-
-        //    }
-        //}
     }
 
     private IEnumerator Reload()
@@ -121,11 +96,11 @@ public class WeaponHandler : MonoBehaviour
         Debug.Log("Reloading...");
         UIManager.instance.Reloading();
         anim.SetBool("Reloading", true);
-        yield return new WaitForSeconds(weapon.ReloadTime - .25f);
+        yield return new WaitForSeconds(stats.ReloadTime - .25f);
         anim.SetBool("Reloading", false);
         yield return new WaitForSeconds(.25f);
 
-        currentAmmo = weapon.MaxAmmo;
+        currentAmmo = stats.MaxAmmo;
         isReloading = false;
     }
 

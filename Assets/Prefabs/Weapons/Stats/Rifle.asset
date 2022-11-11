@@ -12,10 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bb32dac4222ea84eaa760d844b84279, type: 3}
   m_Name: Rifle
   m_EditorClassIdentifier: 
-  _Damage: 35
+  _Damage: 20
+  _DamageLevels: 14000000380000004a0000005c0000006e0000008000000092000000a4000000b6000000c8000000
   _Range: 80
   _FireRate: 8
-  _ImpactForce: 10
   _MaxAmmo: 30
-  _ReloadTime: 1.5
+  _AmmoLevels: 1e00000024000000270000002a0000002d000000300000003300000036000000390000003c000000
+  _ReloadTime: 3.8
+  _ReloadLevels:
+  - 3.8
+  - 3.7
+  - 3.6
+  - 3.5
+  - 3.4
+  - 3.3
+  - 3.2
+  - 3.1
+  - 3
+  - 2.8
   _MuzzleFlash: {fileID: 1792188298182917967, guid: ea4b0c1e5964c964494d1a71d25e8fdc, type: 3}

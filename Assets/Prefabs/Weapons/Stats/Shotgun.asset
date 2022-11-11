@@ -13,9 +13,21 @@ MonoBehaviour:
   m_Name: Shotgun
   m_EditorClassIdentifier: 
   _Damage: 100
+  _DamageLevels: 64000000dc00000022010000540100007c0100009c010000b6010000ce010000e2010000f4010000
   _Range: 20
   _FireRate: 2
-  _ImpactForce: 10
   _MaxAmmo: 10
-  _ReloadTime: 1.25
+  _AmmoLevels: 0a0000000c0000000d0000000e0000000f0000001000000011000000120000001300000014000000
+  _ReloadTime: 5
+  _ReloadLevels:
+  - 5
+  - 4.8
+  - 4.6
+  - 4.4
+  - 4.2
+  - 4
+  - 3.6
+  - 3.4
+  - 3.2
+  - 3
   _MuzzleFlash: {fileID: 7891176590033990008, guid: 546ef29dd80f36c4dbc56e603c667eec, type: 3}
