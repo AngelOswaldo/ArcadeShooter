@@ -63,8 +63,11 @@ public class UpgradesSelector : MonoBehaviour
         } while ((a == b) || (b == c) || (a == c));
         //Debug.Log(a + "," + b + "," + c);
         upgrades[a].SetActive(true);
+        upgrades[a].transform.SetSiblingIndex(0);
         upgrades[b].SetActive(true);
+        upgrades[b].transform.SetSiblingIndex(1);
         upgrades[c].SetActive(true);
+        upgrades[c].transform.SetSiblingIndex(2);
 
         input1 = upgrades[a].GetComponent<Button>();
         input2 = upgrades[b].GetComponent<Button>();
