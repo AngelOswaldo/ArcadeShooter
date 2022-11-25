@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,7 @@ public class WeaponHandler : MonoBehaviour
     [SerializeField] private Transform muzzleFlashPoint;
 
     [SerializeField] private Animator anim;
+    [SerializeField] private AudioSource audioSource;
 
     private float nextTimeToFire = 0f;
     private int currentAmmo;
@@ -91,6 +93,9 @@ public class WeaponHandler : MonoBehaviour
         if(stats.MuzzleFlash != null)
             MuzzleFlash.Play();
 
+        if (stats.ShootSFX != null)
+            audioSource.PlayOneShot(stats.ShootSFX[UnityEngine.Random.Range((int)0, (int)stats.ShootSFX.Length)]);
+
         if(!player.dontReload)
             currentAmmo--;
 
@@ -122,7 +127,8 @@ public class WeaponHandler : MonoBehaviour
         yield return new WaitForSeconds(stats.ReloadTime - .25f);
         anim.SetBool("Reloading", false);
         yield return new WaitForSeconds(.25f);
-
+        if (stats.ShootSFX != null)
+            audioSource.PlayOneShot(stats.ReloadSFX);
         currentAmmo = stats.MaxAmmo;
         isReloading = false;
     }

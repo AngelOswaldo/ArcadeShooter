@@ -31,3 +31,5 @@ MonoBehaviour:
   - 2.328
   - 2.16
   _MuzzleFlash: {fileID: 4462792052823865917, guid: eea4ffdd1e9df204dbfb9840db578975, type: 3}
+  _ShootSFX: {fileID: 8300000, guid: 4d43f6ecab0daf641839abf85ecf73c0, type: 3}
+  _ReloadSFX: {fileID: 0}

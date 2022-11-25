@@ -17,17 +17,19 @@ MonoBehaviour:
   _Range: 150
   _FireRate: 1
   _MaxAmmo: 3
-  _AmmoLevels: 0300000004000000050000000600000007000000070000000800000009000000090000000a000000
+  _AmmoLevels: 0a0000000c0000000e00000010000000110000001200000013000000150000001600000018000000
   _ReloadTime: 5
   _ReloadLevels:
-  - 5
-  - 4.8
-  - 4.6
-  - 4.4
-  - 4.2
-  - 4
+  - 3.8
+  - 3.75
+  - 3.65
   - 3.6
+  - 3.5
   - 3.4
+  - 3.3
+  - 3.2
   - 3.2
   - 3
   _MuzzleFlash: {fileID: 350390484758179474, guid: de9e817bf141bec4392782fc3ee5e90f, type: 3}
+  _ShootSFX: {fileID: 8300000, guid: 5d649a22e02865643b13ba084c2f2561, type: 3}
+  _ReloadSFX: {fileID: 0}

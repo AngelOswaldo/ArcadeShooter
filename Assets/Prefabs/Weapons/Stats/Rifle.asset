@@ -20,14 +20,16 @@ MonoBehaviour:
   _AmmoLevels: 1e00000024000000270000002a0000002d000000300000003300000036000000390000003c000000
   _ReloadTime: 3.8
   _ReloadLevels:
-  - 3.8
-  - 3.7
-  - 3.6
   - 3.5
-  - 3.4
-  - 3.3
-  - 3.2
-  - 3.1
+  - 3.43
+  - 3.36
+  - 3.29
+  - 3.22
+  - 3.15
   - 3
+  - 2.9
+  - 2.85
   - 2.8
   _MuzzleFlash: {fileID: 1792188298182917967, guid: ea4b0c1e5964c964494d1a71d25e8fdc, type: 3}
+  _ShootSFX: {fileID: 8300000, guid: e0e9c505dc36ab64098bb59b54467b32, type: 3}
+  _ReloadSFX: {fileID: 8300000, guid: 092a5020d0704654599959496e09ccf2, type: 3}

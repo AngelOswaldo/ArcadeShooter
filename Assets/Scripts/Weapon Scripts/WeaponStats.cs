@@ -14,7 +14,10 @@ public class WeaponStats : ScriptableObject
     [SerializeField] private List<int> _AmmoLevels;
     [SerializeField] private float _ReloadTime;
     [SerializeField] private List<float> _ReloadLevels;
+    [Header("Weapon FX")]
     [SerializeField] private ParticleSystem _MuzzleFlash;
+    [SerializeField] private AudioClip[] _ShootSFX;
+    [SerializeField] private AudioClip _ReloadSFX;
 
     public int Damage
     {
@@ -34,6 +37,8 @@ public class WeaponStats : ScriptableObject
     public float Range { get => _Range;}
     public float FireRate { get => _FireRate;}
     public ParticleSystem MuzzleFlash { get => _MuzzleFlash;}
+    public AudioClip[] ShootSFX { get => _ShootSFX;}
+    public AudioClip ReloadSFX { get => _ReloadSFX;}
     public List<int> DamageLevels { get { return _DamageLevels; } }
     public List<int> AmmoLevels { get { return _AmmoLevels; } }
     public List<float> ReloadLevels { get { return _ReloadLevels; } }
