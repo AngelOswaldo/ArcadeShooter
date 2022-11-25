@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector] public List<EnemyHandler> actualEnemies;
     private bool isAllSpawning = false;
-    [HideInInspector] public bool isFinished = false;
+    private bool isFinished = false;
 
     [Header("Others")]
     public PlayerHandler player;
@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     {
         GetSpawnPoints();
         StartCoroutine(SpawnWave());
+        UIManager.instance.UpdateWaveCount(waveIndex + 1);
     }
 
     private void Update()
@@ -41,7 +42,9 @@ public class GameManager : MonoBehaviour
         if (player.isDead)
         {
             StopAllCoroutines();
-            UIManager.instance.SetLoseUI();
+            UIManager.instance.SetGameOverUI();
+            ScoreManager.instance.GetNewHighScore();
+            enabled = false;
             //Debug.Log("El jugador murio...");
         }
 
@@ -55,7 +58,7 @@ public class GameManager : MonoBehaviour
 
         if (isFinished)
         {
-            if(waveIndex < waves.Count -1)
+            if(waveIndex < waves.Count)
                 waveIndex += 1;
 
             UIManager.instance.UpdateWaveCount(waveIndex + 1);
@@ -75,9 +78,8 @@ public class GameManager : MonoBehaviour
             if (waveIndex > waves.Count)
             {
                 //Debug.Log("Juego Terminado...");
-                UIManager.instance.SetVictoryUI();
+                UIManager.instance.SetGameOverUI();
                 return;
-
             }
             StartCoroutine(SpawnWave());
             isFinished = false;

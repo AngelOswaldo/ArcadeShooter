@@ -39,6 +39,8 @@ public class DeathZone : MonoBehaviour
         if (player.isDead)
         {
             StopAllCoroutines();
+            agent.enabled = false;
+            enabled = false;
         }
     }
 

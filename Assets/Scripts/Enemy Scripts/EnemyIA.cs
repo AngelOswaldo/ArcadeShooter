@@ -61,6 +61,8 @@ public class EnemyIA : MonoBehaviour
         else if (player.isDead && !isDead)
         {
             IdleState();
+            agent.enabled = false;
+            enabled = false;
         }
     }
 

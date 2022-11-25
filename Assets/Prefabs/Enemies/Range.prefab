@@ -1647,6 +1647,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: bdadc4496c2f5514181ad9903bcb15b2, type: 2}
   actualHealth: 0
+  scoreAmount: 150
   drops:
   - {fileID: 1036185689967059701, guid: 59e89e3d094004544be09a779868fd9e, type: 3}
   - {fileID: 4826591131436936317, guid: e06f420439a385743b2f5d053830b4da, type: 3}

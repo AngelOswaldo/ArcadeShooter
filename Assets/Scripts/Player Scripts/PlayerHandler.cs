@@ -7,7 +7,7 @@ public class PlayerHandler : MonoBehaviour
 {
     public PlayerStats stats;
 
-    [SerializeField] private float actualHealth;
+    private float actualHealth;
     [HideInInspector] public bool isDead = false;
     private bool isInmortal = false;
     [HideInInspector] public bool dontReload = false;
@@ -15,6 +15,9 @@ public class PlayerHandler : MonoBehaviour
     [Header("UI VFX")]
     [SerializeField] private Image hitRadial;
     [SerializeField] private Image healthImage;
+
+    [Header("Others")]
+    [SerializeField] private DisableOnDeath onDeath;
 
     private void Start()
     {
@@ -58,7 +61,7 @@ public class PlayerHandler : MonoBehaviour
                 if (actualHealth == 0)
                 {
                     isDead = true;
-                    Time.timeScale = 0;
+                    onDeath.DisableAll();
                 }
             }
         }

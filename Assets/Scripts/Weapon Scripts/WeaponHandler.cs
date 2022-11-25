@@ -102,6 +102,7 @@ public class WeaponHandler : MonoBehaviour
             if (target != null)
             {
                 target.TakeDamage(stats.Damage);
+                ScoreManager.instance.AddScore((int)(stats.Damage * .10f));
             }
 
             if(impactEffect != null)

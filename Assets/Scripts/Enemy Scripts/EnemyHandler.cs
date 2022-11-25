@@ -8,7 +8,8 @@ public class EnemyHandler : MonoBehaviour
     private EnemyIA enemyIA;
 
     [SerializeField] private int actualHealth;
-    
+    [SerializeField] private int scoreAmount;
+
     public GameObject[] drops;
 
     private bool isDropSpawned = false;
@@ -40,6 +41,7 @@ public class EnemyHandler : MonoBehaviour
         if(actualHealth <= 0 && !isDropSpawned)
         {
             isDropSpawned = true;
+            ScoreManager.instance.AddScore(scoreAmount);
             Invoke(nameof(DropItem), stats.DeathAnimation);
         }
     }

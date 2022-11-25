@@ -9,13 +9,18 @@ public class UIManager : MonoBehaviour
     public static UIManager instance;
 
     [Header("UI Panels")]
-    [SerializeField] private GameObject victoryPanel;
-    [SerializeField] private GameObject losePanel;
+    [SerializeField] private GameObject gameOver_Panel;
     [Header("UI Texts")]
     [SerializeField] private Text waveCount;
     [SerializeField] private Text ammoCount;
     [SerializeField] private Text healthCount;
     [SerializeField] private Text powerUpsText;
+    [SerializeField] private Text scoreCount;
+    [Header("GAME OVER Text")]
+    [SerializeField] private TextMeshProUGUI gameOver_score;
+    [SerializeField] private TextMeshProUGUI gameOver_waves;
+    [Header("Others")]
+    [SerializeField]private Animator waveCount_animator;
 
     private void Awake()
     {
@@ -29,19 +34,16 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void SetVictoryUI()
+    public void SetGameOverUI()
     {
-        victoryPanel.SetActive(true);
-    }
-
-    public void SetLoseUI()
-    {
-        losePanel.SetActive(true);
+        gameOver_Panel.SetActive(true);
     }
 
     public void UpdateWaveCount(int value)
     {
+        waveCount_animator.SetTrigger("Fade");
         waveCount.text = $"Oleada: {value}";
+        gameOver_waves.SetText($"Sobreviviste {value} oleadas");
     }
 
     public void UpdateAmmo(int actualAmmo, int maxAmmo)
@@ -72,5 +74,11 @@ public class UIManager : MonoBehaviour
     public void UpdateHealth(float actualHealth, float maxHealth)
     {
         healthCount.text = $"{actualHealth}/{maxHealth}";
+    }
+
+    public void UpdateScore(int value)
+    {
+        scoreCount.text = $"Score: {value}";
+        gameOver_score.SetText($"Score: {value}");
     }
 }
