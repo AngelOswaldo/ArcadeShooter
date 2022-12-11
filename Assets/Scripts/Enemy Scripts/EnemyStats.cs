@@ -52,6 +52,10 @@ public class EnemyStats : ScriptableObject
     /// </summary>
     [SerializeField] private float _DeathAnimation;
 
+    [Header("Enemy FX")]
+    [SerializeField] private AudioClip[] _AttackSFX;
+    [SerializeField] private AudioClip[] _DeathSFX;
+
     public int GetMaxHealth(int waveNumber)
     {
         if(waveNumber <= 0) { return _StartHealth; }
@@ -74,4 +78,7 @@ public class EnemyStats : ScriptableObject
     
     public float AttackAnimation { get => _AttackAnimation; }
     public float DeathAnimation { get => _DeathAnimation; }
+
+    public AudioClip[] AttackSFX { get => _AttackSFX; }
+    public AudioClip[] DeathSFX { get => _DeathSFX; }
 }

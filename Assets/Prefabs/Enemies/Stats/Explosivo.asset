@@ -12,15 +12,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65ddca2a1f5e3fc4cbb6ed4e2a6cff20, type: 3}
   m_Name: Explosivo
   m_EditorClassIdentifier: 
-  _StartHealth: 50
+  _StartHealth: 75
   _HealthMultiplier: 5
   _StartDamage: 50
   _DamageMultiplier: 10
   _DamageSplitter: 2
   _SpeedAttack: 1
   _RangeAttack: 2.5
-  _MovementSpeed: 10
+  _MovementSpeed: 8
   _ChaseDistance: 2
   _RotationSpeed: 360
   _AttackAnimation: 0.3
   _DeathAnimation: 1
+  _AttackSFX:
+  - {fileID: 8300000, guid: a970649270f85524781aecaae72c17d4, type: 3}
+  - {fileID: 8300000, guid: 9bbd84e105eab9a488fbb19d9c8c4316, type: 3}
+  - {fileID: 8300000, guid: 3900e0114d300ec44983585f377b93e7, type: 3}
+  - {fileID: 8300000, guid: 4adff813d872c8d4cbd9061571b27a23, type: 3}
+  - {fileID: 8300000, guid: e1650f062fce13c40bd2b04b53f63ac9, type: 3}
+  - {fileID: 8300000, guid: ed026e1601969384085c070e671ac3ad, type: 3}
+  _DeathSFX:
+  - {fileID: 8300000, guid: a5c0fa4b0df4ae24cb21163083602802, type: 3}
+  - {fileID: 8300000, guid: e07fc492bc3af4642aa50771cd142fd2, type: 3}
+  - {fileID: 8300000, guid: e53fa9eb839efca47bdb15aeb3eeeff7, type: 3}
+  - {fileID: 8300000, guid: 9e575307826ce7a409fe27b38254eb31, type: 3}
+  - {fileID: 8300000, guid: 1cdd22eff11daed45894f4aee6ed1dfc, type: 3}

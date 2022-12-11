@@ -12,6 +12,7 @@ public enum EnemyType
 
 public class EnemyIA : MonoBehaviour
 {
+    [Header("Enemy Settigns")]
     private NavMeshAgent agent;
     private Collider mCollider;
 
@@ -21,6 +22,7 @@ public class EnemyIA : MonoBehaviour
     private EnemyHandler mHandler;
     private bool canAttack = true;
     private bool isDead = false;
+    private bool isWalking = false;
 
     public EnemyType enemyType;
 
@@ -30,6 +32,14 @@ public class EnemyIA : MonoBehaviour
     private DoAttack attackCom;
     private DoDeath deathCom;
 
+    [SerializeField] private AudioSource sfxAudioSource;
+    [SerializeField] private float delayAttackSFX;
+
+    [Header("Footstep Settings")]
+    [SerializeField] private AudioSource stepsAudioSource;
+    [SerializeField] private float baseStepSpeed = 0.5f;
+    [SerializeField] private FootStepsClips stepsClips;
+    private float footstepTimer = 0;
 
     private void Start()
     {
@@ -88,6 +98,7 @@ public class EnemyIA : MonoBehaviour
             else if(distance > mHandler.stats.ChaseDistance)
             {
                 ChaseState();
+                FootStepsHandle();
             }
         }
     }
@@ -101,6 +112,7 @@ public class EnemyIA : MonoBehaviour
             moveCom.Cancel(anim);
 
         agent.isStopped = true;
+        isWalking = false;
 
         Vector3 direction = target.position - transform.position;
         direction.y = 0;
@@ -140,6 +152,7 @@ public class EnemyIA : MonoBehaviour
     private IEnumerator MeleeAttack()
     {
         canAttack = false;
+        Invoke(nameof(CallDamageSound), mHandler.stats.AttackAnimation - delayAttackSFX);
         Invoke(nameof(CallDamage), mHandler.stats.AttackAnimation);
         yield return new WaitForSeconds(mHandler.stats.SpeedAttack);
         canAttack = true;
@@ -148,6 +161,7 @@ public class EnemyIA : MonoBehaviour
     private IEnumerator ExplosiveAttack()
     {
         canAttack = false;
+        Invoke(nameof(CallDamageSound), mHandler.stats.AttackAnimation - delayAttackSFX);
         Invoke(nameof(CallDamage), mHandler.stats.AttackAnimation);
         yield return null;
     }
@@ -155,6 +169,7 @@ public class EnemyIA : MonoBehaviour
     private IEnumerator RangeAttack()
     {
         canAttack = false;
+        Invoke(nameof(CallDamageSound), mHandler.stats.AttackAnimation - delayAttackSFX);
         Invoke(nameof(CallDamage), mHandler.stats.AttackAnimation);
         yield return new WaitForSeconds(mHandler.stats.SpeedAttack);
         canAttack = true;
@@ -172,6 +187,18 @@ public class EnemyIA : MonoBehaviour
         }
     }
 
+    private void CallDamageSound()
+    {
+        float distance = Vector3.Distance(transform.position, target.position);
+        if (distance <= mHandler.stats.GetMaxRangeAttack() && !isDead)
+        {
+            if (mHandler.stats.AttackSFX.Length > 0)
+            {
+                sfxAudioSource.PlayOneShot(mHandler.stats.AttackSFX[Random.Range((int)0, (int)mHandler.stats.AttackSFX.Length)]);
+            }
+        }
+    }
+
     /// <summary>
     /// Permitimos el movimiento del enemigo y le pasamos la ubicacion del jugador.
     /// </summary>
@@ -181,6 +208,43 @@ public class EnemyIA : MonoBehaviour
         agent.SetDestination(target.position);
         if (anim != null)
             moveCom.Execute(anim);
+        isWalking = true;
+    }
+
+    private void FootStepsHandle()
+    {
+        if (!isWalking)
+            return;
+
+        footstepTimer -= Time.deltaTime;
+        if (footstepTimer <= 0)
+        {
+            if(Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 3f))
+            {
+                switch (hit.collider.tag)
+                {
+                    case "FootSteps/Metal":
+                        stepsAudioSource.volume = stepsClips.MetalVolume;
+                        stepsAudioSource.PlayOneShot(stepsClips.MetalClips[Random.Range(0, stepsClips.MetalClips.Length)]);
+                        break;
+
+                    case "FootSteps/Concrete":
+                        stepsAudioSource.volume = stepsClips.ConcreteVolume;
+                        stepsAudioSource.PlayOneShot(stepsClips.ConcreteClips[Random.Range(0, stepsClips.ConcreteClips.Length)]);
+                        break;
+
+                    case "FootSteps/Carpet":
+                        stepsAudioSource.volume = stepsClips.CarpetVolume;
+                        stepsAudioSource.PlayOneShot(stepsClips.CarpetClips[Random.Range(0, stepsClips.CarpetClips.Length)]);
+                        break;
+
+                    default:
+                        stepsAudioSource.PlayOneShot(stepsClips.ConcreteClips[Random.Range(0, stepsClips.ConcreteClips.Length)]);
+                        break;
+                }
+            }
+            footstepTimer = baseStepSpeed;
+        }
     }
 
     /// <summary>
@@ -190,6 +254,10 @@ public class EnemyIA : MonoBehaviour
     {
         if (anim != null && !isDead)
             deathCom.Execute(anim);
+
+        if (mHandler.stats.DeathSFX.Length > 0)
+            sfxAudioSource.PlayOneShot(mHandler.stats.DeathSFX[Random.Range((int)0, (int)mHandler.stats.DeathSFX.Length)]);
+
         isDead = true;
         agent.enabled = false;
         mCollider.enabled = false;

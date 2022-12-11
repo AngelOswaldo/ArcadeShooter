@@ -16,9 +16,13 @@ public class WeaponStats : ScriptableObject
     [SerializeField] private List<float> _ReloadLevels;
     [Header("Weapon FX")]
     [SerializeField] private ParticleSystem _MuzzleFlash;
-    [SerializeField] private AudioClip[] _ShootSFX;
-    [SerializeField] private AudioClip _ReloadSFX;
-
+    [SerializeField] private AudioClip[] _ShootsSFX;
+    [SerializeField] private AudioClip[] _ReloadsSFX;
+    [SerializeField] private AudioClip _EquipSFX;
+    [Header("Volume Settings")]
+    [SerializeField] private float _shootVolume;
+    [SerializeField] private float _ReloadVolume;
+    [SerializeField] private float _EquipVolume;
     public int Damage
     {
         get { return _Damage; }
@@ -37,9 +41,13 @@ public class WeaponStats : ScriptableObject
     public float Range { get => _Range;}
     public float FireRate { get => _FireRate;}
     public ParticleSystem MuzzleFlash { get => _MuzzleFlash;}
-    public AudioClip[] ShootSFX { get => _ShootSFX;}
-    public AudioClip ReloadSFX { get => _ReloadSFX;}
+    public AudioClip[] ShootsSFX { get => _ShootsSFX;}
+    public AudioClip[] ReloadsSFX { get => _ReloadsSFX;}
+    public AudioClip EquipSFX { get => _EquipSFX; }
     public List<int> DamageLevels { get { return _DamageLevels; } }
     public List<int> AmmoLevels { get { return _AmmoLevels; } }
     public List<float> ReloadLevels { get { return _ReloadLevels; } }
+    public float ShootVolume { get { return _shootVolume; } }
+    public float ReloadVolume { get { return _ReloadVolume; } }
+    public float EquipVolume { get { return _EquipVolume; } }
 }

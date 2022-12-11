@@ -82,8 +82,8 @@ public class UpgradesSelector : MonoBehaviour
 
     private void SetButtonText()
     {
-        inputText1.text = "Press 1.";
-        inputText2.text = "Press 2.";
-        inputText3.text = "Press 3.";
+        inputText1.text = "Presiona 1.";
+        inputText2.text = "Presiona 2.";
+        inputText3.text = "Presiona 3.";
     }
 }

@@ -18,7 +18,7 @@ MonoBehaviour:
   _FireRate: 2
   _MaxAmmo: 10
   _AmmoLevels: 0a0000000c0000000d0000000e0000000f0000001000000011000000120000001300000014000000
-  _ReloadTime: 5
+  _ReloadTime: 3.8
   _ReloadLevels:
   - 3.8
   - 3.75
@@ -31,5 +31,15 @@ MonoBehaviour:
   - 3.2
   - 3
   _MuzzleFlash: {fileID: 7891176590033990008, guid: 546ef29dd80f36c4dbc56e603c667eec, type: 3}
-  _ShootSFX: {fileID: 8300000, guid: 961ad44d7770e8940b862e07b41244e5, type: 3}
-  _ReloadSFX: {fileID: 0}
+  _ShootsSFX:
+  - {fileID: 8300000, guid: cb59d04ad37d0c2498dcef977e02ed84, type: 3}
+  - {fileID: 8300000, guid: a6d38e16c0fa6d740b80ca5543fe496d, type: 3}
+  - {fileID: 8300000, guid: c5d853a8b218dff4da7e424d682f0931, type: 3}
+  - {fileID: 8300000, guid: 81925657ef8ce58488d195447234777c, type: 3}
+  _ReloadsSFX:
+  - {fileID: 8300000, guid: ff7a8d5254e61de4db36ffed0fe699f7, type: 3}
+  - {fileID: 8300000, guid: 48173ece9e5cb964eb274fb4d03f6399, type: 3}
+  _EquipSFX: {fileID: 8300000, guid: d7ed905e63698be4dbd15679479eb88b, type: 3}
+  _shootVolume: 0.4
+  _ReloadVolume: 0.35
+  _EquipVolume: 0.3

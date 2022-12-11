@@ -131,10 +131,17 @@ public class PlayerHandler : MonoBehaviour
     {
         isInmortal = true;
         UIManager.instance.Inmortal();
-        yield return new WaitForSeconds(duration);
+        WaitForEndOfFrame eof = new WaitForEndOfFrame();
+        float time = 0;
+        while (time < duration)
+        {
+            UIManager.instance.UpdateInmortalRadial(time, duration);
+            time += Time.deltaTime;
+            yield return eof;
+        }
         isInmortal = false;
         HealDamage(stats.MaxHealth);
-        UIManager.instance.Normal();
+        UIManager.instance.TurnOffPowerImage(1);
     }
 
     public void CallInmortal(float duration)
@@ -146,9 +153,16 @@ public class PlayerHandler : MonoBehaviour
     {
         dontReload = true;
         UIManager.instance.InfiniteAmmo();
-        yield return new WaitForSeconds(duration);
+        WaitForEndOfFrame eof = new WaitForEndOfFrame();
+        float time = 0;
+        while(time < duration)
+        {
+            UIManager.instance.UpdateInfiniteAmmoRadial(time, duration);
+            time += Time.deltaTime;
+            yield return eof;
+        }
         dontReload = false;
-        UIManager.instance.Normal();
+        UIManager.instance.TurnOffPowerImage(0);
     }
 
     public void CallDontReload(float duration)

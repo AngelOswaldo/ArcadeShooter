@@ -16,9 +16,9 @@ MonoBehaviour:
   _DamageLevels: fa000000bc0200009d0300007e0400005f050000400600002107000002080000e3080000c4090000
   _Range: 150
   _FireRate: 1
-  _MaxAmmo: 3
+  _MaxAmmo: 10
   _AmmoLevels: 0a0000000c0000000e00000010000000110000001200000013000000150000001600000018000000
-  _ReloadTime: 5
+  _ReloadTime: 3.8
   _ReloadLevels:
   - 3.8
   - 3.75
@@ -31,5 +31,15 @@ MonoBehaviour:
   - 3.2
   - 3
   _MuzzleFlash: {fileID: 350390484758179474, guid: de9e817bf141bec4392782fc3ee5e90f, type: 3}
-  _ShootSFX: {fileID: 8300000, guid: 5d649a22e02865643b13ba084c2f2561, type: 3}
-  _ReloadSFX: {fileID: 0}
+  _ShootsSFX:
+  - {fileID: 8300000, guid: f37383505fa58d64cad9db625dc0d01d, type: 3}
+  - {fileID: 8300000, guid: aa4b9a8811265ad4c861c062f6a92a83, type: 3}
+  - {fileID: 8300000, guid: cbe286eb28d853e4a94b6ba75e0a7783, type: 3}
+  - {fileID: 8300000, guid: 635089bd17498da4a8348dd10fcc53c0, type: 3}
+  _ReloadsSFX:
+  - {fileID: 8300000, guid: a6cfc39d6cfbee44aa333a2fae54f77b, type: 3}
+  - {fileID: 8300000, guid: d57d655cbafbea14cbab35809f06ea51, type: 3}
+  _EquipSFX: {fileID: 8300000, guid: bd6e8a26f55c49f448205e3d127c875b, type: 3}
+  _shootVolume: 0.1
+  _ReloadVolume: 0.2
+  _EquipVolume: 0.35

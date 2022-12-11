@@ -21,4 +21,14 @@ public class PlayTest : MonoBehaviour
         Scene actualScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(actualScene.buildIndex);
     }
+
+    public void StartMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
 }

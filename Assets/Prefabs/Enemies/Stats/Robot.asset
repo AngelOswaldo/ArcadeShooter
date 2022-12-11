@@ -19,8 +19,18 @@ MonoBehaviour:
   _DamageSplitter: 5
   _SpeedAttack: 1.2
   _RangeAttack: 1.5
-  _MovementSpeed: 6.5
+  _MovementSpeed: 4.5
   _ChaseDistance: 3
-  _RotationSpeed: 270
+  _RotationSpeed: 360
   _AttackAnimation: 0.8
   _DeathAnimation: 2
+  _AttackSFX:
+  - {fileID: 8300000, guid: c88794a77cc9903428d49b8ab00c1379, type: 3}
+  - {fileID: 8300000, guid: 83a090a22beed53458a3f57b556db48f, type: 3}
+  - {fileID: 8300000, guid: 43b8c1a02376cb54e8742e96dc0ae031, type: 3}
+  - {fileID: 8300000, guid: 8db7d296fdf9d6347a4f875fb3713560, type: 3}
+  _DeathSFX:
+  - {fileID: 8300000, guid: f48edfaac80f7eb459c57846a3bef0ca, type: 3}
+  - {fileID: 8300000, guid: d403b6c902f7c464dac9522e126c5fcd, type: 3}
+  - {fileID: 8300000, guid: 119a1721459bb03459e2f3c97cd59426, type: 3}
+  - {fileID: 8300000, guid: 8df5e06a5fe9d634fa68b722577d7a8e, type: 3}

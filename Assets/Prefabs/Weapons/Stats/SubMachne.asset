@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bb32dac4222ea84eaa760d844b84279, type: 3}
   m_Name: SubMachne
   m_EditorClassIdentifier: 
-  _Damage: 35
+  _Damage: 15
   _DamageLevels: 0f000000230000002e0000003900000045000000500000005b00000066000000720000007d000000
   _Range: 40
   _FireRate: 10
-  _MaxAmmo: 50
+  _MaxAmmo: 32
   _AmmoLevels: 20000000320000003a000000430000004c000000550000005e000000660000006f00000078000000
-  _ReloadTime: 2.916
+  _ReloadTime: 3
   _ReloadLevels:
   - 3
   - 2.916
@@ -31,5 +31,11 @@ MonoBehaviour:
   - 2.328
   - 2.16
   _MuzzleFlash: {fileID: 4462792052823865917, guid: eea4ffdd1e9df204dbfb9840db578975, type: 3}
-  _ShootSFX: {fileID: 8300000, guid: 4d43f6ecab0daf641839abf85ecf73c0, type: 3}
-  _ReloadSFX: {fileID: 0}
+  _ShootsSFX:
+  - {fileID: 8300000, guid: becc2c54d6563664db1ec3e5c0000130, type: 3}
+  _ReloadsSFX:
+  - {fileID: 8300000, guid: a67a7e8b9d155cf4fb108dd423db9e7c, type: 3}
+  _EquipSFX: {fileID: 8300000, guid: e73f73b0ba225924caaf613e3ca0e9fb, type: 3}
+  _shootVolume: 0.25
+  _ReloadVolume: 0.3
+  _EquipVolume: 0.3

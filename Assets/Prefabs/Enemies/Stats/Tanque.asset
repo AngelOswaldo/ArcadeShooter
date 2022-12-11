@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65ddca2a1f5e3fc4cbb6ed4e2a6cff20, type: 3}
   m_Name: Tanque
   m_EditorClassIdentifier: 
-  _StartHealth: 500
+  _StartHealth: 3000
   _HealthMultiplier: 45
   _StartDamage: 80
   _DamageMultiplier: 5
@@ -21,6 +21,17 @@ MonoBehaviour:
   _RangeAttack: 2
   _MovementSpeed: 5
   _ChaseDistance: 3
-  _RotationSpeed: 270
+  _RotationSpeed: 360
   _AttackAnimation: 1.5
   _DeathAnimation: 3.1
+  _AttackSFX:
+  - {fileID: 8300000, guid: 6027b44a807f01e42aabb103f6b8a19f, type: 3}
+  - {fileID: 8300000, guid: 53c6855da2f19a7478c0a2234eb2a714, type: 3}
+  - {fileID: 8300000, guid: 44c55a9d0f3a8ec4baa3351edac45da5, type: 3}
+  - {fileID: 8300000, guid: 917704a42b20a234bb514c743d8059f9, type: 3}
+  - {fileID: 8300000, guid: 97982bb8f0737ab40840dd21590dc376, type: 3}
+  _DeathSFX:
+  - {fileID: 8300000, guid: 74781ef5cf361e646bc56cf5794005b8, type: 3}
+  - {fileID: 8300000, guid: 792bdc2e401ddbc4db194a676c88b4e4, type: 3}
+  - {fileID: 8300000, guid: d6993c77f6c834c40b4d21efd9bba7f6, type: 3}
+  - {fileID: 8300000, guid: 5bc00107b3ad97f438d6a2eb39d9b580, type: 3}

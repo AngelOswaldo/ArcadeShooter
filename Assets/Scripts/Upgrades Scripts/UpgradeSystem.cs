@@ -123,6 +123,9 @@ public class UpgradeSystem : MonoBehaviour
         if (actualShotgunUpgrade < shotgun.stats.DamageLevels.Count - 1)
             actualShotgunUpgrade += 1;
 
+        if (actualShotgunUpgrade == shotgun.stats.DamageLevels.Count - 1)
+            shotgun.MaxUpgrades();
+
         shotgun.stats.Damage = shotgun.stats.DamageLevels[actualShotgunUpgrade];
         shotgun.stats.MaxAmmo = shotgun.stats.AmmoLevels[actualShotgunUpgrade];
         shotgun.stats.ReloadTime = shotgun.stats.ReloadLevels[actualShotgunUpgrade];
@@ -133,6 +136,9 @@ public class UpgradeSystem : MonoBehaviour
     {
         if (actualRifleUpgrade < rifle.stats.DamageLevels.Count - 1)
             actualRifleUpgrade += 1;
+
+        if (actualRifleUpgrade == rifle.stats.DamageLevels.Count - 1)
+            rifle.MaxUpgrades();
 
         rifle.stats.Damage = rifle.stats.DamageLevels[actualRifleUpgrade];
         rifle.stats.MaxAmmo = rifle.stats.AmmoLevels[actualRifleUpgrade];
@@ -145,6 +151,9 @@ public class UpgradeSystem : MonoBehaviour
         if (actualSubmachineUpgrade < submachine.stats.DamageLevels.Count - 1)
             actualSubmachineUpgrade += 1;
 
+        if (actualSubmachineUpgrade == submachine.stats.DamageLevels.Count - 1)
+            submachine.MaxUpgrades();
+
         submachine.stats.Damage = submachine.stats.DamageLevels[actualSubmachineUpgrade];
         submachine.stats.MaxAmmo = submachine.stats.AmmoLevels[actualSubmachineUpgrade];
         submachine.stats.ReloadTime = submachine.stats.ReloadLevels[actualSubmachineUpgrade];
@@ -156,6 +165,9 @@ public class UpgradeSystem : MonoBehaviour
         if (actualPistolUpgrade < pistol.stats.DamageLevels.Count - 1)
             actualPistolUpgrade += 1;
 
+        if (actualPistolUpgrade == pistol.stats.DamageLevels.Count - 1)
+            pistol.MaxUpgrades();
+
         pistol.stats.Damage = pistol.stats.DamageLevels[actualPistolUpgrade];
         pistol.stats.MaxAmmo = pistol.stats.AmmoLevels[actualPistolUpgrade];
         pistol.stats.ReloadTime = pistol.stats.ReloadLevels[actualPistolUpgrade];
@@ -166,6 +178,9 @@ public class UpgradeSystem : MonoBehaviour
     {
         if (actualSniperUpgrade < sniper.stats.DamageLevels.Count - 1)
             actualSniperUpgrade += 1;
+
+        if (actualSniperUpgrade == sniper.stats.DamageLevels.Count - 1)
+            sniper.MaxUpgrades();
 
         sniper.stats.Damage = sniper.stats.DamageLevels[actualSniperUpgrade];
         sniper.stats.MaxAmmo = sniper.stats.AmmoLevels[actualSniperUpgrade];

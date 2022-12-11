@@ -31,9 +31,13 @@ MonoBehaviour:
   - 1.5
   - 1.25
   _MuzzleFlash: {fileID: 5667502738608486751, guid: 4a504373ec2da4348928bbe59d536c64, type: 3}
-  _ShootSFX:
-  - {fileID: 8300000, guid: 0b42974d26b734440a1130c9679bf130, type: 3}
-  - {fileID: 8300000, guid: 5e4ca5095cc887545bbe5b990cca2623, type: 3}
-  - {fileID: 8300000, guid: e0e9c505dc36ab64098bb59b54467b32, type: 3}
-  - {fileID: 8300000, guid: 1a2d021bf49df7443a4b819fdf46ff91, type: 3}
-  _ReloadSFX: {fileID: 8300000, guid: 56ad80eabc5595f4481a7b409620a7a9, type: 3}
+  _ShootsSFX:
+  - {fileID: 8300000, guid: db91ec8946e236f46b070f90dd3258c8, type: 3}
+  - {fileID: 8300000, guid: 698b6dfa7287a7046acafdde4195a231, type: 3}
+  _ReloadsSFX:
+  - {fileID: 8300000, guid: 6cdbc91a982412341ace39d00e23764c, type: 3}
+  - {fileID: 8300000, guid: 5454c4fd148bed743bb8e82f4ae6220c, type: 3}
+  _EquipSFX: {fileID: 8300000, guid: dea73c4c76b60ca4e9629e9208b7e168, type: 3}
+  _shootVolume: 0.1
+  _ReloadVolume: 0.2
+  _EquipVolume: 0.35

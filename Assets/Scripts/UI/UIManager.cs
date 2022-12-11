@@ -11,11 +11,12 @@ public class UIManager : MonoBehaviour
     [Header("UI Panels")]
     [SerializeField] private GameObject gameOver_Panel;
     [Header("UI Texts")]
-    [SerializeField] private Text waveCount;
-    [SerializeField] private Text ammoCount;
-    [SerializeField] private Text healthCount;
-    [SerializeField] private Text powerUpsText;
-    [SerializeField] private Text scoreCount;
+    [SerializeField] private TextMeshProUGUI waveCount;
+    [SerializeField] private TextMeshProUGUI ammoCount;
+    [SerializeField] private Image healthBar;
+    [SerializeField] private Image bulletsImage;
+    [SerializeField] private Image inmortalImage;
+    [SerializeField] private TextMeshProUGUI scoreCount;
     [Header("GAME OVER Text")]
     [SerializeField] private TextMeshProUGUI gameOver_score;
     [SerializeField] private TextMeshProUGUI gameOver_waves;
@@ -42,43 +43,51 @@ public class UIManager : MonoBehaviour
     public void UpdateWaveCount(int value)
     {
         waveCount_animator.SetTrigger("Fade");
-        waveCount.text = $"Oleada: {value}";
+        waveCount.SetText($"Oleada: {value}");
         gameOver_waves.SetText($"Sobreviviste {value} oleadas");
     }
 
     public void UpdateAmmo(int actualAmmo, int maxAmmo)
     {
-        ammoCount.text = $"{actualAmmo}/{maxAmmo}";
-    }
-
-    public void Reloading()
-    {
-        ammoCount.text = "Recargando...";
+        ammoCount.SetText($"{actualAmmo}/{maxAmmo}");
     }
 
     public void InfiniteAmmo()
     {
-        powerUpsText.text = "Balas infinitas";
+        bulletsImage.gameObject.SetActive(true);
+    }
+
+    public void UpdateInfiniteAmmoRadial(float time, float maxTime)
+    {
+        bulletsImage.fillAmount = 1 - time/maxTime;
     }
 
     public void Inmortal()
     {
-        powerUpsText.text = "Inmortal";
+        inmortalImage.gameObject.SetActive(true);
     }
 
-    public void Normal()
+    public void UpdateInmortalRadial(float time, float maxTime)
     {
-        powerUpsText.text = "";
+        inmortalImage.fillAmount = 1 - time / maxTime;
+    }
+
+    public void TurnOffPowerImage(int number)
+    {
+        if (number == 0)
+            bulletsImage.gameObject.SetActive(false);
+        else if (number == 1)
+            inmortalImage.gameObject.SetActive(false);
     }
 
     public void UpdateHealth(float actualHealth, float maxHealth)
     {
-        healthCount.text = $"{actualHealth}/{maxHealth}";
+        healthBar.fillAmount = actualHealth/maxHealth;
     }
 
     public void UpdateScore(int value)
     {
-        scoreCount.text = $"Score: {value}";
+        scoreCount.SetText($"Score: {value}");
         gameOver_score.SetText($"Score: {value}");
     }
 }

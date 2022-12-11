@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 579c77ab8b1c6c449ae9a1978daac279, type: 3}
+  m_Name: EnemiesClips
+  m_EditorClassIdentifier: 
+  _ConcreteClips:
+  - {fileID: 8300000, guid: 4366479d05030374289e070615779f8d, type: 3}
+  - {fileID: 8300000, guid: cc19a8b5fd1af5d4980f343fb0a870ab, type: 3}
+  - {fileID: 8300000, guid: b5f92d745a1f40b43a96ca0fe121ff7f, type: 3}
+  - {fileID: 8300000, guid: 321d8c94377c09e458a1e32067066e27, type: 3}
+  - {fileID: 8300000, guid: ee14f4eb6200be0409e387b3edf56379, type: 3}
+  - {fileID: 8300000, guid: d58e4dead01f8a74a90af0e14fceeb2e, type: 3}
+  - {fileID: 8300000, guid: 4c322b52e3a59b14fb4b19730e21d6de, type: 3}
+  - {fileID: 8300000, guid: 00e1f727d9820fd48aef18711142382d, type: 3}
+  - {fileID: 8300000, guid: 144bd3f81a85c2f4cad2914e49622b29, type: 3}
+  - {fileID: 8300000, guid: 38a4811b91a203342b0c684c3fe3d15a, type: 3}
+  _MetalClips:
+  - {fileID: 8300000, guid: fd114b45f721e7e409d6bf6d363e3932, type: 3}
+  - {fileID: 8300000, guid: 870d00fa036e8cd44912a5a05c8ae4a3, type: 3}
+  - {fileID: 8300000, guid: 1845e83fcd769dc449fba81fb7aff7b6, type: 3}
+  - {fileID: 8300000, guid: 482b75f19e4a4e2419963bb11224e5eb, type: 3}
+  - {fileID: 8300000, guid: f025a7d5ef789c04fa5ac4c1dbd90278, type: 3}
+  - {fileID: 8300000, guid: 3959d644735201f45b8b668d4e87e127, type: 3}
+  - {fileID: 8300000, guid: 884fca2bd519e014f8d5a036684d595a, type: 3}
+  - {fileID: 8300000, guid: 6eb4e00c015a9254989c4cf82ef4adc7, type: 3}
+  - {fileID: 8300000, guid: 9ae2af1c56d3e1745a54fc23472ef1d2, type: 3}
+  - {fileID: 8300000, guid: 9b9b7b8ba17d871409ad75a565e6b318, type: 3}
+  _CarpetClips:
+  - {fileID: 8300000, guid: 2516b128e4aa6304daf95f5e371b6992, type: 3}
+  - {fileID: 8300000, guid: 95d6bce92aefc4c4d90b0010e8886498, type: 3}
+  - {fileID: 8300000, guid: 73f882e833815bf40a9afd73f7180ad1, type: 3}
+  - {fileID: 8300000, guid: 323f5339e00f62d4985f97a892d0d98f, type: 3}
+  - {fileID: 8300000, guid: 7b60cf0b41acf6a40b0d89ffd05129e8, type: 3}
+  - {fileID: 8300000, guid: f568cce52657889438bf2e6732d1c01c, type: 3}
+  - {fileID: 8300000, guid: 5f6733552a7d2154a8f82353c55e4053, type: 3}
+  - {fileID: 8300000, guid: 56507732dedcaf3479073131477d1806, type: 3}
+  - {fileID: 8300000, guid: 1b29626e32390ec4d997a17c2c05b7f1, type: 3}
+  - {fileID: 8300000, guid: 38f63cce6acc7e041b547b0ea12d6fa8, type: 3}
+  _ConcreteVolume: 0.05
+  _MetalVolume: 0.01
+  _CarpetVolume: 0.08
